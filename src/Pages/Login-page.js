@@ -1,6 +1,11 @@
+import LoginForm from '../Components/LoginForm.js';
 
 export default function LoginPage(){
 	return(
-		<h1>login page</h1>
+		<div className={"loginFormPage"}>
+			<div className={"display"}>
+				<LoginForm />
+			</div>
+		</div>
 	)
 }
