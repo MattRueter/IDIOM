@@ -26,7 +26,14 @@ button:hover{
   justify-content: space-between;
   align-items: center;
 }
-
+/*Landing Page body*/
+.landingPage{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height:100vh;
+  margin: 0%;
+}
 /*Login component*/
 
 input:focus{
