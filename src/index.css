@@ -26,7 +26,22 @@ button:hover{
   justify-content: space-between;
   align-items: center;
 }
-
+/*LOGOS*/
+.smLogo{
+  background-image:url("./idiomLogo.png");
+  height: 50px;
+  width: 100px;
+  margin:2%;
+}
+/*Landing Page body*/
+.landingPage{
+  background-image: url("./idiomBackground2.png");
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height:100vh;
+  margin: 0%;
+}
 /*Login component*/
 
 input:focus{
@@ -40,9 +55,9 @@ input:invalid{
       width:900px;
     }
         #loginContainer{
-          background-color: #09048587;
+          background-color: #4b2fa1;
           border-radius: 20px;
-          box-shadow: -10px 10px 0px midnightblue;
+          box-shadow: -10px 10px 0px #31054c;
           height:400px;
           width: 400px;
             display:flex;

@@ -1,18 +1,40 @@
-import {LoginForm} from '../Components/LoginForm.js';
+import LoginForm from '../Components/LoginForm.js';
+import {Navbar, navBarFoot} from '../Components/Navbar.js';
 
-export default function LandingPage (){
-	return(
-		<div>
-			<main>
-				//Large alt logo
-				//try demo link
-				//Small login
+const mainStyles = {
+	display: "flex",
+	justifyContent: "space-evenly",
+	alignItems: "center",
+	width: "80%",
+	height: "100%",
+	marginLeft: "5%",
+	padding: "1%"
+}
+const largeLogo = {
+	backgroundColor: "#22187e",
+	color: "white",
+	display: "flex",
+	height: "75%",
+	width: "60%",
+	flexDirection: "column",
+	justifyContent: "center",
+	alignItems: "center",
+	fontSize: "80px"
+}
+export default function LandingPage() {
+	return (
+		<div className={"landingPage"}>
+			<main style={mainStyles}>
+				<div style={largeLogo}>idiom</div>
+				<LoginForm />
 			</main>
-			<footer>
-				//small logo
-				//link box
-					//links ...
-			</footer>
+			<Navbar style={navBarFoot}>
+				<div>
+					<p>link</p>
+					<p>link</p>
+					<p>link</p>
+				</div>
+			</Navbar>
 		</div>
 	)
 }
