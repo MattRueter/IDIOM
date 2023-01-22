@@ -6,6 +6,33 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+/*----------------- LINKS  ----------------------------------*/
+.btnLink{
+  user-select: none;
+  border-radius: 20px;
+  border: 1px solid white;
+  background-color: white;
+  height:50px;
+  width: 90%;
+  font-family: monospace;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration: none;
+  color: black;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.btnLink:hover{
+  box-shadow:-10px 5px 2px midnightblue;
+  background-color: #cbe1f6;
+}
+.link{
+  margin:2%;
+  text-decoration:none;
+  color: black;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+/*-------------------------------------------------------------------------*/
 button{
   user-select: none;
   border-radius: 20px;
@@ -13,7 +40,8 @@ button{
   background-color: white;
   height:50px;
   width: 90%;
-  font-family: monospace
+  font-size:large;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 button:hover{
   box-shadow:0px 1px 0px gray;
