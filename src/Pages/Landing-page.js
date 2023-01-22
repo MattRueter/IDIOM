@@ -1,5 +1,5 @@
 import LoginForm from '../Components/LoginForm.js';
-import {Navbar, navBarFoot} from '../Components/Navbar.js';
+import {Footer} from '../Components/Footer.js';
 
 const mainStyles = {
 	display: "flex",
@@ -28,13 +28,7 @@ export default function LandingPage() {
 				<div style={largeLogo}>idiom</div>
 				<LoginForm />
 			</main>
-			<Navbar style={navBarFoot}>
-				<div>
-					<p>link</p>
-					<p>link</p>
-					<p>link</p>
-				</div>
-			</Navbar>
+			<Footer />
 		</div>
 	)
 }

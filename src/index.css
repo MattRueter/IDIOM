@@ -27,6 +27,7 @@ body {
   background-color: #cbe1f6;
 }
 .link{
+  margin:2%;
   text-decoration:none;
   color: black;
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;

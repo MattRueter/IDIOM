@@ -1,5 +1,6 @@
 import Button from '../Components/Button.js';
 import {Link} from 'react-router-dom';
+
 export default function LoginForm ({logo}) {
 	return(
 		<div id = 'loginContainer'>
