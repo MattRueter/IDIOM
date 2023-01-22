@@ -26,3 +26,48 @@ button:hover{
   justify-content: space-between;
   align-items: center;
 }
+
+/*Login component*/
+
+input:focus{
+  outline:none;
+}
+input:invalid{
+  border: 5px dotted pink;
+}
+    #pushDiv{  /* keeps the loginContainer in place on smaller screens*/
+      height:80px;
+      width:900px;
+    }
+        #loginContainer{
+          background-color: #09048587;
+          border-radius: 20px;
+          box-shadow: -10px 10px 0px midnightblue;
+          height:400px;
+          width: 400px;
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+            #loginInputContainer{
+              height:300px;
+                display:flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+            }
+                .loginInput{
+                  height:40px;
+                  width:300px;
+                  border-radius: 10px;
+                  border:none;
+                    font-size: large;
+                }
+                #loginInputContainer > button{
+                  font-family: -webkit-pictograph;
+                }
+                #loginInputContainer > button:hover{
+                  box-shadow:-10px 5px 2px midnightblue;
+                  background-color: #cbe1f6;
+                }
