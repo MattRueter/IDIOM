@@ -12,11 +12,19 @@ export const navBarFoot ={
 	backgroundColor: "#090152",
 	height: "20%"
 }
+export const contentContainer={
+	display:"flex",
+	justifyContent: "center",
+	alignItems: "center",
+	width: "25%",
+	height: "90%",
+}
 
-export function Navbar ({style}){
+export function Navbar ({style, content}){
 	return (
 		<nav style={style}>
 			<div className={"smLogo"}></div>
+			<div style={contentContainer}>{content}</div>
 		</nav>
 	)
 }
