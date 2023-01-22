@@ -1,9 +1,10 @@
-
-
+import Navbar from './Components/Navbar.js';
+import Menu from './Components/Menu.js';
 function App() {
   return (
     <div>
-      <h1>IDIOM now built with REACT</h1>
+      <Navbar />
+      <Menu />
     </div>
   );
 }
