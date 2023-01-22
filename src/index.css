@@ -26,6 +26,15 @@ button:hover{
   justify-content: space-between;
   align-items: center;
 }
+.display{
+  height:100vh;
+  width:100%;
+  background-color:#d860bac4;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+}
 /*LOGOS*/
 .smLogo{
   background-image:url("./idiomLogo.png");
@@ -33,6 +42,7 @@ button:hover{
   width: 100px;
   margin:2%;
 }
+/*///////////////////////  PAGES   //////////////////////////////////////*/
 /*Landing Page body*/
 .landingPage{
   background-image: url("./idiomBackground2.png");
@@ -42,47 +52,49 @@ button:hover{
   height:100vh;
   margin: 0%;
 }
+.homePage{
+  background-image: url("./idiomBackground2.png");
+}
+.loginFormPage{
+  background-image: url("./idiomBackground2.png");
+}
+/*////////////////////////////////////////////////////////////*/
 /*Login component*/
-
 input:focus{
   outline:none;
 }
 input:invalid{
   border: 5px dotted pink;
 }
-    #pushDiv{  /* keeps the loginContainer in place on smaller screens*/
-      height:80px;
-      width:900px;
-    }
-        #loginContainer{
-          background-color: #4b2fa1;
-          border-radius: 20px;
-          box-shadow: -10px 10px 0px #31054c;
-          height:400px;
-          width: 400px;
-            display:flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-            #loginInputContainer{
-              height:300px;
-                display:flex;
-                flex-direction: column;
-                justify-content: space-between;
-                align-items: center;
-            }
-                .loginInput{
-                  height:40px;
-                  width:300px;
-                  border-radius: 10px;
-                  border:none;
-                    font-size: large;
-                }
-                #loginInputContainer > button{
-                  font-family: -webkit-pictograph;
-                }
-                #loginInputContainer > button:hover{
-                  box-shadow:-10px 5px 2px midnightblue;
-                  background-color: #cbe1f6;
-                }
+#loginContainer{
+  background-color: #4b2fa1;
+  border-radius: 20px;
+  box-shadow: -10px 10px 0px #31054c;
+  height:400px;
+  width: 400px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#loginInputContainer{
+  height:300px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.loginInput{
+  height:40px;
+  width:300px;
+  border-radius: 10px;
+  border:none;
+  font-size: large;
+}
+#loginInputContainer > button{
+  font-family: -webkit-pictograph;
+}
+#loginInputContainer > button:hover{
+  box-shadow:-10px 5px 2px midnightblue;
+  background-color: #cbe1f6;
+}

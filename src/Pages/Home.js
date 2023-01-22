@@ -3,7 +3,7 @@ import Menu from '../Components/Menu.js';
 
 export default function Home() {
   return (
-    <div>
+    <div className={"homePage"}>
       <Navbar style={navbar} />
       <Menu />
     </div>
