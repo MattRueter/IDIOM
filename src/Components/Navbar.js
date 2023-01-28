@@ -20,8 +20,9 @@ export function Navbar ({content}){
 		<nav style={navbar}>
 			<div className={"smLogo"}></div>
 			<div style={contentContainer}>
-				<Link to='/' className={"link"}>HOME</Link>
+				<Link to='/' className={"link"}>Landing Page</Link>
 				<Link to='/login' className={"link"}>LOGIN</Link>
+				<Link to='/exercises' className={"link"}>Exercises</Link>
 			</div>
 		</nav>
 	)
