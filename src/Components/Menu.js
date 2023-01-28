@@ -9,15 +9,20 @@ const menu ={
 	flexDirection: "column",
 	backgroundColor: "whitesmoke"
 }
+export const menuButtons=["show sets", "show folders", "new set"];
+export const exerciseMenuButtons=["matching","memory","respond","flip", "multiple-choice"]
 
-export default function Menu (){
+export function Menu ({buttonOptions}){
+
+	const buttons = buttonOptions.map((button) => {
+		return (
+			<Button action={button}/>
+		)
+	});	
+
 	return (
 		<div style={menu} className={"Menu"}>
-			<div className={"menuItems"}>
-			<Button action={"show sets"}/>
-			<Button action={"show folders"}/>
-			<Button action={"new set"}/>
-			</div>
+			<div className={"menuItems"}>{buttons}</div>
 		</div>
 	)
 }

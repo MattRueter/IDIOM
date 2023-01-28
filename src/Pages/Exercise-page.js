@@ -1,5 +1,11 @@
+import {Menu, exerciseMenuButtons} from '../Components/Menu';
+import {Navbar, navbar} from '../Components/Navbar.js';
+
 export default function ExercisePage (){
 	return (
-		<h1>Exercise page</h1>
+		<div className={"exercisePage"}>
+			<Navbar />
+			<Menu buttonOptions={exerciseMenuButtons}/>
+		</div>
 	)
 }

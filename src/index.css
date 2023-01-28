@@ -86,6 +86,9 @@ button:hover{
 .loginFormPage{
   background-image: url("./idiomBackground2.png");
 }
+.exercisePage{
+  background-image: url("./idiomBackground2.png");
+}
 /*////////////////////////////////////////////////////////////*/
 /*Login component*/
 input:focus{
