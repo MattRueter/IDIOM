@@ -16,7 +16,7 @@ export function Menu ({buttonOptions}){
 
 	const buttons = buttonOptions.map((button) => {
 		return (
-			<Button action={button}/>
+			<Button action={button} key={buttonOptions.indexOf(button)}/>
 		)
 	});	
 
