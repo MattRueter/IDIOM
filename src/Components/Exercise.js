@@ -2,7 +2,7 @@ import Button from './Button';
 
 export function Exercise (){
 	return (
-		<div className={"exerciseContainer"}>
+		<div>
 			<FlipExercise />
 			<MultiChoiceExercise />
 			<ResponseExercise />
@@ -14,7 +14,7 @@ export function Exercise (){
 
 const FlipExercise = () =>{
 	return(
-		<div className={"vocabCardsActivityDisplay"}>
+		<div className={"display"}>
 			<div className={"card"}>TEXT</div>
 			<div className={"buttonBox"}>
 				<Button action={"<= Previous"}></Button> 
@@ -26,7 +26,7 @@ const FlipExercise = () =>{
 
 const MultiChoiceExercise = () =>{
 	return(
-		<div className={"vocabCardsActivityDisplay"}>
+		<div className={"display"}>
 			<div className={"card"}>TEXT</div>
 			<div className={"buttonBox"}>
 				<Button action={"option"}></Button>
@@ -44,7 +44,7 @@ const MultiChoiceExercise = () =>{
 
 const ResponseExercise = () =>{
 	return(
-		<div className={"vocabCardsActivityDisplay"}>
+		<div className={"display"}>
 			<div className={"card"}>TEXT</div>
 			<input className={"exerciseInput"}></input>
 			<div className={"buttonBox"}>
@@ -56,7 +56,7 @@ const ResponseExercise = () =>{
 }
 const MemoryExercise = () =>{
 	return(
-		<div className={"vocabCardsActivityDisplayROW"}>
+		<div className={"displayROW"}>
 			<Card />
 			<Card />
 			<Card />
@@ -82,7 +82,7 @@ const MemoryExercise = () =>{
 }
 const MatchingExercise = () =>{
 	return(
-		<div className={"vocabCardsActivityDisplayROW"}>
+		<div className={"displayROW"}>
 			<div className={"CardColumn"}>
 				<Card />
 				<Card />
