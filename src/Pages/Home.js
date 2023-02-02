@@ -5,7 +5,9 @@ export default function Home() {
   return (
     <div className={"homePage"}>
       <Navbar />
-      <Menu buttonOptions={menuButtons}/>
+      <div className={"container"}>
+        <Menu buttonOptions={menuButtons}/>
+      </div>
     </div>
   );
 }
