@@ -6,6 +6,7 @@ export function Exercise (){
 			<FlipExercise />
 			<MultiChoiceExercise />
 			<ResponseExercise />
+			<MemoryExercise />
 		</div>
 	)
 }
@@ -44,11 +45,42 @@ const ResponseExercise = () =>{
 	return(
 		<div className={"vocabCardsActivityDisplay"}>
 			<div className={"card"}>TEXT</div>
-			<input></input>
+			<input className={"exerciseInput"}></input>
 			<div className={"buttonBox"}>
 				<Button action={"<= Previous"}></Button> 
 				<Button action={"Next =>"}></Button>
 			</div>
 		</div>
+	)
+}
+const MemoryExercise = () =>{
+	return(
+		<div className={"vocabCardsActivityDisplayROW"}>
+			<Card />
+			<Card />
+			<Card />
+			<Card />
+			<Card />
+			<Card />
+			<Card />
+			<Card />
+			<Card />
+			<Card />
+			<Card />			
+			<Card />
+			<Card />
+			<Card />
+			<Card />
+			<Card />
+			<Card />
+			<Card />
+			<Card />
+			<Card />			
+		</div>		
+	)
+}
+const Card = () =>{
+	return (
+		<div className={"smallCard"}>TEXT</div>
 	)
 }
