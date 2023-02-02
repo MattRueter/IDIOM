@@ -5,6 +5,7 @@ export function Exercise (){
 		<div className={"exerciseContainer"}>
 			<FlipExercise />
 			<MultiChoiceExercise />
+			<ResponseExercise />
 		</div>
 	)
 }
@@ -24,17 +25,30 @@ const FlipExercise = () =>{
 const MultiChoiceExercise = () =>{
 	return(
 		<div className={"vocabCardsActivityDisplay"}>
-		<div className={"card"}>TEXT</div>
-		<div className={"buttonBox"}>
-			<Button action={"option"}></Button>
-			<Button action={"option"}></Button>
-			<Button action={"option"}></Button>
-			<Button action={"option"}></Button>
+			<div className={"card"}>TEXT</div>
+			<div className={"buttonBox"}>
+				<Button action={"option"}></Button>
+				<Button action={"option"}></Button>
+				<Button action={"option"}></Button>
+				<Button action={"option"}></Button>
+			</div>
+			<div className={"buttonBox"}>
+				<Button action={"<= Previous"}></Button> 
+				<Button action={"Next =>"}></Button>
+			</div>
 		</div>
-		<div className={"buttonBox"}>
-			<Button action={"<= Previous"}></Button> 
-			<Button action={"Next =>"}></Button>
+	)
+}
+
+const ResponseExercise = () =>{
+	return(
+		<div className={"vocabCardsActivityDisplay"}>
+			<div className={"card"}>TEXT</div>
+			<input></input>
+			<div className={"buttonBox"}>
+				<Button action={"<= Previous"}></Button> 
+				<Button action={"Next =>"}></Button>
+			</div>
 		</div>
-	</div>
 	)
 }
