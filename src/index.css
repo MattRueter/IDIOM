@@ -203,3 +203,9 @@ input:invalid{
   border-bottom:1px solid black;
   font-size:xx-large;
 }
+.CardColumn{
+  margin:7%;
+}
+.CardColumn>*{
+  margin:15%;
+}

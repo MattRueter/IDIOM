@@ -7,6 +7,7 @@ export function Exercise (){
 			<MultiChoiceExercise />
 			<ResponseExercise />
 			<MemoryExercise />
+			<MatchingExercise />
 		</div>
 	)
 }
@@ -79,6 +80,27 @@ const MemoryExercise = () =>{
 		</div>		
 	)
 }
+const MatchingExercise = () =>{
+	return(
+		<div className={"vocabCardsActivityDisplayROW"}>
+			<div className={"CardColumn"}>
+				<Card />
+				<Card />
+				<Card />
+				<Card />
+				<Card />
+			</div>
+			<div className={"CardColumn"}>
+				<Card />
+				<Card />
+				<Card />
+				<Card />
+				<Card />
+			</div>
+		</div>
+	)
+}
+
 const Card = () =>{
 	return (
 		<div className={"smallCard"}>TEXT</div>
