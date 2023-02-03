@@ -2,12 +2,12 @@ import Button from './Button.js';
 
 const menu ={
 	borderRadius: "20px",
-	height: "100vh",
+	height: "80vh",
 	width: "10%",
-	marginLeft: "3%",
+	margin: "1%",
 	display: "flex",
 	flexDirection: "column",
-	backgroundColor: "whitesmoke"
+	backgroundColor: "#c6d2e3"
 }
 export const menuButtons=["show sets", "show folders", "new set"];
 export const exerciseMenuButtons=["matching","memory","respond","flip", "multiple-choice"]
