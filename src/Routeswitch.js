@@ -4,7 +4,9 @@ import LandingPage from './Pages/Landing-page.js';
 import LoginPage from './Pages/Login-page.js';
 import ExercisePage from './Pages/Exercise-page.js';
 
+
 export default function Routeswitch () {
+
 	return(
 		<BrowserRouter>
 			<Routes>

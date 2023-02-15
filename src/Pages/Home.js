@@ -1,7 +1,7 @@
 import {Navbar} from '../Components/Navbar.js';
 import {Menu, menuButtons} from '../Components/Menu.js';
 import {DisplayFolders, DisplaySets} from '../Components/FolderAndSetDisplay';
-import { demoLibrary } from '../Data/library.js';
+
 
 
 export default function Home() {
