@@ -1,9 +1,14 @@
 import {Navbar} from '../Components/Navbar.js';
 import {Menu, menuButtons} from '../Components/Menu.js';
 import {DisplayFolders, DisplaySets} from '../Components/FolderAndSetDisplay';
-
+import { setSelected } from "../Reducers/setReducer";
 import { useSelector, useDispatch } from 'react-redux';
-import { select_set } from '../Actions/setActions.js';
+const mySet = {
+  l1:"test", 
+  l2:"prueba", 
+  folder:"spanish", 
+  labels:["basic", "test"]
+  }
 
 export default function Home() {
   const state = useSelector((state) => state);
@@ -13,7 +18,7 @@ export default function Home() {
     <div className={"homePage"}>
         
         <button onClick={() => {
-            dispatch(select_set())
+            dispatch(setSelected(mySet))
           }}>choose set
         </button>
 
