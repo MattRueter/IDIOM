@@ -10,7 +10,7 @@ const menu ={
 	backgroundColor: "#c6d2e3"
 }
 export const menuButtons=["show sets", "show folders", "new set"];
-export const exerciseMenuButtons=["matching","memory","respond","flip", "multiple-choice"]
+export const exerciseMenuButtons=["flip", "multiple-choice", "respond", "matching", "memory"]
 
 export function Menu ({handleClick,buttonOptions}){
 
