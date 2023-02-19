@@ -7,17 +7,17 @@ import { exerciseSelected } from '../Reducers/exerciseReducer';
 export default function ExercisePage (){
 	const state = useSelector((state) => state);
 	const dispatch = useDispatch();
+	const currentExercise  = state.exerciseReducer.exercise
 
 	const handleClick = (exerciseType) => {
 		dispatch(exerciseSelected(exerciseType))
-		console.log(state)
 	}
 	return (
 		<div className={"exercisePage"}>
 			<Navbar />
 			<div className={"container"}>
 				<Menu handleClick={handleClick}buttonOptions={exerciseMenuButtons}/>
-				<Exercise />
+				<Exercise currentExercise={currentExercise}/>
 			</div>
 		</div>
 	)

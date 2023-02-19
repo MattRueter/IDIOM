@@ -1,15 +1,20 @@
 import Button from './Button';
 
-export function Exercise (){
-	return (
-		<div>
-			<FlipExercise />
-			<MultiChoiceExercise />
-			<ResponseExercise />
-			<MemoryExercise />
-			<MatchingExercise />
-		</div>
-	)
+export function Exercise ({currentExercise}){
+	switch(currentExercise){
+		case "flip":
+			return(<FlipExercise />);
+		case "matching":
+			return(<MatchingExercise />);
+		case "multiple-choice":
+			return(<MultiChoiceExercise />);
+		case "respond":
+			return(<ResponseExercise />);
+		case "memory":
+			return(<MemoryExercise />);
+		default:
+			return(<FlipExercise />);
+	}
 }
 
 const FlipExercise = () =>{
