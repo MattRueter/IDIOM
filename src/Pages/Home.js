@@ -4,9 +4,11 @@ import {DisplayFolders, DisplaySets} from '../Components/FolderAndSetDisplay';
 import { setSelected } from "../Reducers/setReducer";
 import { useSelector, useDispatch } from 'react-redux';
 import { wordLibrary } from "../Data/wordCollection";
-const setA = wordLibrary;
-const setB = [{l1:"b",l2:"B", folder:"testB",labels:["testing"]}]
-const setC = [{l1:"c",l2:"C", folder:"testC",labels:["testing"]}]
+import { filterSets } from '../Utility_functions/utilities';
+
+const setA = wordLibrary
+const setB = filterSets(["odd"], "spanish");
+const setC = filterSets(["basic"],"french")
 
 
 export default function Home() {
@@ -17,7 +19,7 @@ export default function Home() {
   return (
     <div className={"homePage"}>
         
-        <button onClick={() => {dispatch(setSelected(setA))}}>choose basic-Spanish</button>
+        <button onClick={() => {dispatch(setSelected(setA))}}>All words</button>
         <button onClick={() => {dispatch(setSelected(setB))}}>choose odd-Spanish</button>
         <button onClick={() => {dispatch(setSelected(setC))}}>choose basic-French</button>
 

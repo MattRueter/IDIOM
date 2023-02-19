@@ -8,11 +8,7 @@ function addWord(l1,l2,folder,labels,examples){
 		examples:examples
 	};
 	wordLibrary.push(word)
-	console.log(wordLibrary)
 }
-
-
-
 addWord( "book","libro", "spanish", ["basic", "leisure", "noun"],"I have that book.")
 addWord( "dog", "perro", "spanish", ["animals", "basic","fun","noun" ] )
 addWord( "cat", "gato", "spanish", ["animals", "basic", "mean","noun"] )
