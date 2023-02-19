@@ -3,10 +3,10 @@ import {Menu, menuButtons} from '../Components/Menu.js';
 import {DisplayFolders, DisplaySets} from '../Components/FolderAndSetDisplay';
 import { setSelected } from "../Reducers/setReducer";
 import { useSelector, useDispatch } from 'react-redux';
-import { demoLibrary } from "../Utility_functions/library";
-const setA = demoLibrary.filterSets(["basic"], "spanish");
-const setB = demoLibrary.filterSets(["odd"], "spanish");
-const setC = demoLibrary.filterSets(["basic"], "french");
+import { wordLibrary } from "../Data/wordCollection";
+const setA = wordLibrary;
+const setB = [{l1:"b",l2:"B", folder:"testB",labels:["testing"]}]
+const setC = [{l1:"c",l2:"C", folder:"testC",labels:["testing"]}]
 
 
 export default function Home() {

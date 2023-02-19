@@ -1,0 +1,1 @@
+//extract methods from Library and Word class to be uese in reducer logic

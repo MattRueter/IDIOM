@@ -37,7 +37,7 @@ class Word {
     }
 }
 
-export class Library {
+class Library {
     constructor(){
         this.list =[]
         this.folders = []
@@ -73,7 +73,7 @@ export class Library {
 
 //EXAMPLES
 
-export const demoLibrary = new Library()
+const demoLibrary = new Library()
 demoLibrary.createNewWord( "book","libro", "spanish", ["basic", "leisure", "noun"],"I have that book.")
 demoLibrary.createNewWord( "dog", "perro", "spanish", ["animals", "basic","fun","noun" ] )
 demoLibrary.createNewWord( "cat", "gato", "spanish", ["animals", "basic", "mean","noun"] )
