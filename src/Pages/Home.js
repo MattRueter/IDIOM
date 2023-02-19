@@ -3,7 +3,7 @@ import {Menu, menuButtons} from '../Components/Menu.js';
 import {DisplayFolders, DisplaySets} from '../Components/FolderAndSetDisplay';
 import { setSelected } from "../Reducers/setReducer";
 import { useSelector, useDispatch } from 'react-redux';
-import { demoLibrary } from "../Data/library";
+import { demoLibrary } from "../Utility_functions/library";
 const setA = demoLibrary.filterSets(["basic"], "spanish");
 const setB = demoLibrary.filterSets(["odd"], "spanish");
 const setC = demoLibrary.filterSets(["basic"], "french");

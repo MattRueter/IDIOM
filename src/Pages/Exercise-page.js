@@ -3,6 +3,7 @@ import {Navbar, navbar} from '../Components/Navbar.js';
 import {Exercise} from '../Components/Exercise';
 
 export default function ExercisePage (){
+
 	return (
 		<div className={"exercisePage"}>
 			<Navbar />
