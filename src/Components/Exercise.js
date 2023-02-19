@@ -17,8 +17,8 @@ const FlipExercise = () =>{
 		<div className={"display"}>
 			<div className={"card"}>TEXT</div>
 			<div className={"buttonBox"}>
-				<Button action={"<= Previous"}></Button> 
-				<Button action={"Next =>"}></Button>
+				<Button buttonName={"<= Previous"}></Button> 
+				<Button buttonName={"Next =>"}></Button>
 			</div>
 		</div>
 	)
@@ -29,14 +29,14 @@ const MultiChoiceExercise = () =>{
 		<div className={"display"}>
 			<div className={"card"}>TEXT</div>
 			<div className={"buttonBox"}>
-				<Button action={"option"}></Button>
-				<Button action={"option"}></Button>
-				<Button action={"option"}></Button>
-				<Button action={"option"}></Button>
+				<Button buttonName={"option"}></Button>
+				<Button buttonName={"option"}></Button>
+				<Button buttonName={"option"}></Button>
+				<Button buttonName={"option"}></Button>
 			</div>
 			<div className={"buttonBox"}>
-				<Button action={"<= Previous"}></Button> 
-				<Button action={"Next =>"}></Button>
+				<Button buttonName={"<= Previous"}></Button> 
+				<Button buttonName={"Next =>"}></Button>
 			</div>
 		</div>
 	)
@@ -48,8 +48,8 @@ const ResponseExercise = () =>{
 			<div className={"card"}>TEXT</div>
 			<input className={"exerciseInput"}></input>
 			<div className={"buttonBox"}>
-				<Button action={"<= Previous"}></Button> 
-				<Button action={"Next =>"}></Button>
+				<Button buttonName={"<= Previous"}></Button> 
+				<Button buttonName={"Next =>"}></Button>
 			</div>
 		</div>
 	)

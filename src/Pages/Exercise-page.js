@@ -4,11 +4,14 @@ import {Exercise} from '../Components/Exercise';
 
 export default function ExercisePage (){
 
+	const handleClick = () => {
+		console.log('clicked.')
+	}
 	return (
 		<div className={"exercisePage"}>
 			<Navbar />
 			<div className={"container"}>
-				<Menu buttonOptions={exerciseMenuButtons}/>
+				<Menu handleClick={handleClick}buttonOptions={exerciseMenuButtons}/>
 				<Exercise />
 			</div>
 		</div>

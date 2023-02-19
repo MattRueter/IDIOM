@@ -12,11 +12,11 @@ const menu ={
 export const menuButtons=["show sets", "show folders", "new set"];
 export const exerciseMenuButtons=["matching","memory","respond","flip", "multiple-choice"]
 
-export function Menu ({buttonOptions}){
+export function Menu ({handleClick,buttonOptions}){
 
-	const buttons = buttonOptions.map((button) => {
+	const buttons = buttonOptions.map((buttonName) => {
 		return (
-			<Button action={button} key={buttonOptions.indexOf(button)}/>
+			<Button handleClick={handleClick}buttonName={buttonName} key={buttonOptions.indexOf(buttonName)}/>
 		)
 	});	
 
