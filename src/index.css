@@ -9,7 +9,6 @@ body {
 .container{
   display:flex;
   justify-content:flex-start;
-  height:100vh;
   width:100%;
 }
 /*----------------- LINKS  ----------------------------------*/
@@ -83,12 +82,15 @@ button:hover{
 }
 .homePage{
   background-image: url("./idiomBackground2.png");
+  height:100%;
 }
 .loginFormPage{
   background-image: url("./idiomBackground2.png");
+  height:100%;
 }
 .exercisePage{
   background-image: url("./idiomBackground2.png");
+  height:100%;
 }
 /*////////////////////////////////////////////////////////////*/
 /*Login component*/

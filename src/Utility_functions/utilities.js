@@ -14,3 +14,11 @@ export function filterSets (labelsArray, folderName="all"){
 	console.log("choosing sets.")
 	return set;
 }
+export function getFolders (){
+	let folders =[]
+	wordLibrary.forEach(word =>{
+		!folders.includes(word.folder) ? folders.push(word.folder) :console.log("getting your folders")
+	})
+	console.log(folders)
+	return folders;
+}
