@@ -1,15 +1,20 @@
 import Button from './Button';
 
-export function Exercise (){
-	return (
-		<div>
-			<FlipExercise />
-			<MultiChoiceExercise />
-			<ResponseExercise />
-			<MemoryExercise />
-			<MatchingExercise />
-		</div>
-	)
+export function Exercise ({currentExercise}){
+	switch(currentExercise){
+		case "flip":
+			return(<FlipExercise />);
+		case "matching":
+			return(<MatchingExercise />);
+		case "multiple-choice":
+			return(<MultiChoiceExercise />);
+		case "respond":
+			return(<ResponseExercise />);
+		case "memory":
+			return(<MemoryExercise />);
+		default:
+			return(<FlipExercise />);
+	}
 }
 
 const FlipExercise = () =>{
@@ -17,8 +22,8 @@ const FlipExercise = () =>{
 		<div className={"display"}>
 			<div className={"card"}>TEXT</div>
 			<div className={"buttonBox"}>
-				<Button action={"<= Previous"}></Button> 
-				<Button action={"Next =>"}></Button>
+				<Button buttonName={"<= Previous"}></Button> 
+				<Button buttonName={"Next =>"}></Button>
 			</div>
 		</div>
 	)
@@ -29,14 +34,14 @@ const MultiChoiceExercise = () =>{
 		<div className={"display"}>
 			<div className={"card"}>TEXT</div>
 			<div className={"buttonBox"}>
-				<Button action={"option"}></Button>
-				<Button action={"option"}></Button>
-				<Button action={"option"}></Button>
-				<Button action={"option"}></Button>
+				<Button buttonName={"option"}></Button>
+				<Button buttonName={"option"}></Button>
+				<Button buttonName={"option"}></Button>
+				<Button buttonName={"option"}></Button>
 			</div>
 			<div className={"buttonBox"}>
-				<Button action={"<= Previous"}></Button> 
-				<Button action={"Next =>"}></Button>
+				<Button buttonName={"<= Previous"}></Button> 
+				<Button buttonName={"Next =>"}></Button>
 			</div>
 		</div>
 	)
@@ -48,8 +53,8 @@ const ResponseExercise = () =>{
 			<div className={"card"}>TEXT</div>
 			<input className={"exerciseInput"}></input>
 			<div className={"buttonBox"}>
-				<Button action={"<= Previous"}></Button> 
-				<Button action={"Next =>"}></Button>
+				<Button buttonName={"<= Previous"}></Button> 
+				<Button buttonName={"Next =>"}></Button>
 			</div>
 		</div>
 	)

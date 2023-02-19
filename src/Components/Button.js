@@ -1,5 +1,5 @@
-export default function Button ({action}){
+export default function Button ({handleClick, buttonName}){
 	return (
-		<button>{action}</button>
+		<button onClick={()=>handleClick(buttonName)}>{buttonName}</button>
 	)
 }

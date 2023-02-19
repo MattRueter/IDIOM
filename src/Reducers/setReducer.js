@@ -1,16 +1,16 @@
-import { SELECT_SET } from "../ActionTypes/actionTypes";;
+import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
 	set: null
 }
-
-export const setReducer = (state = initialState, action) => {
-	switch(action) {
-		case SELECT_SET:
-			return {
-				set: action.payload
-			}
-		default:
-			return state;
+//RTK sliceReducer
+export const setSlice = createSlice({
+	name: "sets",
+	initialState,
+	reducers: {
+		setSelected(state, action){
+			state.set = action.payload
+		}
 	}
-}
+})
+export const { setSelected } = setSlice.actions

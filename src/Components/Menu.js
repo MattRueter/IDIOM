@@ -10,13 +10,13 @@ const menu ={
 	backgroundColor: "#c6d2e3"
 }
 export const menuButtons=["show sets", "show folders", "new set"];
-export const exerciseMenuButtons=["matching","memory","respond","flip", "multiple-choice"]
+export const exerciseMenuButtons=["flip", "multiple-choice", "respond", "matching", "memory"]
 
-export function Menu ({buttonOptions}){
+export function Menu ({handleClick,buttonOptions}){
 
-	const buttons = buttonOptions.map((button) => {
+	const buttons = buttonOptions.map((buttonName) => {
 		return (
-			<Button action={button} key={buttonOptions.indexOf(button)}/>
+			<Button handleClick={handleClick}buttonName={buttonName} key={buttonOptions.indexOf(buttonName)}/>
 		)
 	});	
 

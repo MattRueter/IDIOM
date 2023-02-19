@@ -1,6 +1,12 @@
-import {legacy_createStore} from "redux";
-import { setReducer } from "./Reducers/setReducer";
+import {configureStore} from "@reduxjs/toolkit";
+import { setSlice,setSelected } from "./Reducers/setReducer";
+import { exerciseSlice, exerciseSelected } from "./Reducers/exerciseReducer";
 
-const store = legacy_createStore(setReducer)
+const store = configureStore({
+	reducer:{
+		setReducer:setSlice.reducer,
+		exerciseReducer: exerciseSlice.reducer
+	}
+})
 
 export default store;
