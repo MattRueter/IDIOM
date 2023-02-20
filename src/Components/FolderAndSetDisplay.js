@@ -1,7 +1,9 @@
 import { useSelector, useDispatch} from "react-redux"
 import { wordLibrary } from "../Data/wordCollection";
 import { folderSelected } from "../Reducers/folderReducer";
+import { setSelected } from "../Reducers/setReducer"
 import { getLabelsFromSet, filterSets } from "../Utility_functions/utilities"
+
 
 export function DisplayFolders_Sets(){
 	const state = useSelector((state) =>state);
@@ -28,13 +30,18 @@ function DisplayFolders (){
 	)	
 }
 function DisplaySets (){
+	const state = useSelector((state) =>state);
+	const folderContents = wordLibrary.filter(word => word.folder === state.folderReducer.currentFolder)
+	const myLabels = folderContents.map(word => word.labels).flat()
+
+	const mySets = myLabels.map((label,index) =>{
+		return(
+			<Set label={label} key={index} />
+		)
+	})
 	return (
 		<div className={"displayROW"}>
-			<Set />
-			<Set />
-			<Set />
-			<Set />
-			<Set />
+			{mySets}
 		</div>
 	)
 }
@@ -53,10 +60,10 @@ const Folder = ({folderTitle}) =>{
 		</div>
 	)
 }
-const Set = () =>{
+const Set = ({label}) =>{
 	return (
 		<div className={"set"}>
-			<div className={".infoBox"}>TEXT</div>
+			<div className={".infoBox"}>{label}</div>
 		</div>
 	)
 }
