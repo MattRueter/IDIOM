@@ -7,11 +7,11 @@ import { getLabelsFromSet, filterSets } from "../Utility_functions/utilities"
 
 export function DisplayFolders_Sets(){
 	const state = useSelector((state) =>state);
-	if(state.folderReducer.currentFolder === ""){
+	if(state.viewReducer.currentView === "Show folders"){
 		return (
 			<DisplayFolders />
 		)
-	}else{
+	}else if(state.viewReducer.currentView === "Show sets"){
 		return(
 			<DisplaySets />
 		)

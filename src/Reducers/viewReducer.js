@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-	currentView:"folders"
+	currentView:"Show folders"
 };
 
 export const viewSlice = createSlice({
