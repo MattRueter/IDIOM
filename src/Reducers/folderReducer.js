@@ -2,8 +2,8 @@ import { createSlice } from '@reduxjs/toolkit'
 import { getFolders } from "../Utility_functions/utilities"
 
 const initialState = {
-	folders: getFolders(), 
-	currentFolder: ""
+	currentFolder: "",
+	folders: getFolders()
 };
 
 export const folderSlice = createSlice({

@@ -1,10 +1,10 @@
 import { useSelector, useDispatch} from "react-redux"
-import { folderAdded } from "../Reducers/folderReducer";
+import { folderSelected } from "../Reducers/folderReducer";
 
 export function DisplayFolders (){
 	const state = useSelector((state) =>state);
 	const myFolders =state.folderReducer.folders.map((folder,index)=>{
-		return <Folder folderTitle={folder} key={index}/>
+		return <Folder folderTitle={folder} key={index} />
 	});
 
 	return (
@@ -30,15 +30,16 @@ export function DisplaySets (){
 	)
 }
 
-export const Folder = ({folderTitle}) =>{
+const Folder = ({folderTitle}) =>{
+	const dispatch = useDispatch();
 	return(
-		<div className={"folder"}>
+		<div onClick={()=>{dispatch(folderSelected(folderTitle))}} className={"folder"}>
 			<div className={"folderTop"}>{folderTitle}</div>
 			<div className={"folderBottom"}></div>
 		</div>
 	)
 }
-export const Set = () =>{
+const Set = () =>{
 	return (
 		<div className={"set"}>
 			<div className={".infoBox"}>TEXT</div>
