@@ -1,6 +1,6 @@
 import {Navbar} from '../Components/Navbar.js';
 import {Menu, menuButtons} from '../Components/Menu.js';
-import {DisplayFolders, DisplaySets} from '../Components/FolderAndSetDisplay';
+import { DisplayFolders_Sets } from '../Components/FolderAndSetDisplay';
 import { setSelected } from "../Reducers/setReducer";
 import { useSelector, useDispatch } from 'react-redux';
 import { wordLibrary } from "../Data/wordCollection";
@@ -26,7 +26,7 @@ export default function Home() {
       <Navbar />
       <div className={"container"}>        
         <Menu buttonOptions={menuButtons}/>
-        <DisplayFolders/>
+        <DisplayFolders_Sets/>
       </div>
     </div>
   );
