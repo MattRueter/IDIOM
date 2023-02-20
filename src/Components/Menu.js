@@ -9,7 +9,7 @@ const menu ={
 	flexDirection: "column",
 	backgroundColor: "#c6d2e3"
 }
-export const menuButtons=["show sets", "show folders", "new set"];
+export const menuButtons=["+ folder", "+ set", "+ word"];
 export const exerciseMenuButtons=["flip", "multiple-choice", "respond", "matching", "memory"]
 
 export function Menu ({handleClick,buttonOptions}){

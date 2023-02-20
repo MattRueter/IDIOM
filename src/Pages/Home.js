@@ -27,7 +27,6 @@ export default function Home() {
       <div className={"container"}>        
         <Menu buttonOptions={menuButtons}/>
         <DisplayFolders/>
-        <DisplaySets />
       </div>
     </div>
   );
