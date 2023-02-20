@@ -2,7 +2,7 @@ import { useSelector, useDispatch} from "react-redux"
 import { wordLibrary } from "../Data/wordCollection";
 import { folderSelected } from "../Reducers/folderReducer";
 import { setSelected } from "../Reducers/setReducer"
-import { getLabelsFromSet, filterSets } from "../Utility_functions/utilities"
+import { getLabelsFromSet, filterSets, removeDuplicates } from "../Utility_functions/utilities"
 
 
 export function DisplayFolders_Sets(){
@@ -32,8 +32,8 @@ function DisplayFolders (){
 function DisplaySets (){
 	const state = useSelector((state) =>state);
 	const folderContents = wordLibrary.filter(word => word.folder === state.folderReducer.currentFolder)
-	let myLabels = folderContents.map(word => word.labels).flat()
-		myLabels = myLabels.filter((item,index) =>myLabels.indexOf(item)===index)
+	const myLabels = removeDuplicates(folderContents.map(word => word.labels).flat())
+	
 	const mySets = myLabels.map((label,index) =>{
 		return(
 			<Set label={label} key={index} />

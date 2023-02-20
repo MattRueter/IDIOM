@@ -9,7 +9,7 @@ import { filterSets } from '../Utility_functions/utilities';
 
 
 const setA = wordLibrary
-const setB = filterSets(["odd"], "spanish");
+const setB = filterSets(["odd", "animals"], "spanish");
 const setC = filterSets(["basic"],"french")
 
 

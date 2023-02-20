@@ -30,3 +30,7 @@ export function getFolders (){
 	console.log(folders)
 	return folders;
 }
+
+export function removeDuplicates (myArray) {
+	return myArray = myArray.filter((item,index) =>myArray.indexOf(item)===index)
+}
