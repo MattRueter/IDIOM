@@ -32,8 +32,8 @@ function DisplayFolders (){
 function DisplaySets (){
 	const state = useSelector((state) =>state);
 	const folderContents = wordLibrary.filter(word => word.folder === state.folderReducer.currentFolder)
-	const myLabels = folderContents.map(word => word.labels).flat()
-
+	let myLabels = folderContents.map(word => word.labels).flat()
+		myLabels = myLabels.filter((item,index) =>myLabels.indexOf(item)===index)
 	const mySets = myLabels.map((label,index) =>{
 		return(
 			<Set label={label} key={index} />
