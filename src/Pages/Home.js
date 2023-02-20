@@ -16,6 +16,9 @@ export default function Home() {
   const dispatch = useDispatch();
   console.log(state);
 
+  const handleClick = (exerciseType) => {
+		console.log("clicking from Home.")
+	}
   return (
     <div className={"homePage"}>
         
@@ -25,7 +28,7 @@ export default function Home() {
 
       <Navbar />
       <div className={"container"}>        
-        <Menu buttonOptions={menuButtons}/>
+        <Menu handleClick={handleClick}buttonOptions={menuButtons}/>
         <DisplayFolders_Sets/>
       </div>
     </div>
