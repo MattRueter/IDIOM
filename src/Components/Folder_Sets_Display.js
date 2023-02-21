@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useSelector, useDispatch} from "react-redux"
 import { wordLibrary } from "../Data/wordCollection";
 import { folderSelected } from "../Reducers/folderReducer";
@@ -30,37 +31,42 @@ function DisplayFolders (){
 	)	
 }
 function DisplaySets (){
+	const [ labelArray, setLabelArray ] = useState([])
 	const state = useSelector((state) =>state);
 	const currentFolder =state.folderReducer.currentFolder;
 	const dispatch = useDispatch()
 	const folderContents = wordLibrary.filter(word => word.folder === currentFolder)
 	const myLabels = removeDuplicates(folderContents.map(word => word.labels).flat())	
-	/////////////////////////////////////////////////////////////////////
-	let labelArray = [];
+
 	const chooseSets = (labelArray) => {
 		const set = filterSets(labelArray,state.folderReducer.currentFolder)
 		dispatch(setSelected(set))		
 	}
 
 	const createLabelArray = (label) => {
-		labelArray.push(label)
-		console.log(labelArray)
+		setLabelArray([...labelArray,label])
 	}
-	/////////////////////////////////////////////////////////////////////
+
 	const mySets = myLabels.map((label,index) =>{
 		return(
 			<Set handleClick={()=>{createLabelArray(label)}}label={label} key={index} />
 		)
 	})
+	const selectedLabels = labelArray.map((label,index)=>{
+		if(labelArray.length > 0){
+			return(
+				<ul>
+					<li>{label}</li>
+				</ul>
+			)
+		}
+	});
+
 	return (
 		<div className={"displayROW"}>
 			<div className={"toolbar"}>
 				<h1>{currentFolder}</h1>
-				<ul>
-					<li>set example 1</li>
-					<li>set example 2</li>
-					<li>set example 3</li>
-				</ul>
+				{selectedLabels}
 				<button onClick={()=>{chooseSets(labelArray)}}>Choose sets</button>
 			</div>
 			{mySets}
