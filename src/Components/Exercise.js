@@ -28,6 +28,7 @@ const FlipExercise = () =>{
 	const next = "Next";
 	const previous = "Previous";
 
+
 	const changeCard = (command) =>{
 		if(counter > 0 && counter < lastWord){
 			command === next ? setCounter(counter + 1) : setCounter(counter - 1);
@@ -37,9 +38,15 @@ const FlipExercise = () =>{
 			command === next ? setCounter( 0 ) : setCounter(counter - 1);
 		}
 	}
+	const flipCard = (e) => {
+		e.target.style.transform = "perspective(500px) rotateX(360deg)";
+		setTimeout(() => {
+			e.target.style.transform = "";
+		  },800)
+	}
 	return(
 		<div className={"display"}>
-			<div className={"card"}>{currentSet[counter].l1}</div>
+			<div className={"card"} onClick={flipCard}>{currentSet[counter].l1}</div>
 			<div className={"buttonBox"}>
 				<Button handleClick={changeCard} buttonName={previous}></Button> 
 				<Button handleClick={changeCard} buttonName={next}></Button>
