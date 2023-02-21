@@ -65,7 +65,7 @@ button:hover{
 }
 /* ------------------------------LOGOS  -----------------------------------*/
 .smLogo{
-  background-image:url("./idiomLogo.png");
+  background-image:url("./Images/idiomLogo.png");
   height: 50px;
   width: 100px;
   margin:2%;
@@ -73,7 +73,7 @@ button:hover{
 /*///////////////////////  PAGES   //////////////////////////////////////*/
 /*Landing Page body*/
 .landingPage{
-  background-image: url("./idiomBackground2.png");
+  background-image: url("./Images/idiomBackground2.png");
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -81,15 +81,15 @@ button:hover{
   margin: 0%;
 }
 .homePage{
-  background-image: url("./idiomBackground2.png");
+  background-image: url("./Images/idiomBackground2.png");
   height:100%;
 }
 .loginFormPage{
-  background-image: url("./idiomBackground2.png");
+  background-image: url("./Images/idiomBackground2.png");
   height:100%;
 }
 .exercisePage{
-  background-image: url("./idiomBackground2.png");
+  background-image: url("./Images/idiomBackground2.png");
   height:100%;
 }
 /*////////////////////////////////////////////////////////////*/
