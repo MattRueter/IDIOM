@@ -33,11 +33,12 @@ const FlipExercise = () =>{
 	useEffect(() => {
 		const resetFlip = setTimeout(() => {
 			setFlipped("");
-		},800)
+		},800);
 		return () => clearTimeout(resetFlip)
 	},[flipped]);
 	
 	const changeCard = (command) =>{
+		setTranslate("l1");
 		if(counter > 0 && counter < lastWord){
 			command === next ? setCounter(counter + 1) : setCounter(counter - 1);
 		}else if(counter === 0) {
@@ -51,7 +52,7 @@ const FlipExercise = () =>{
 		setFlipped("perspective(500px) rotateX(360deg)");
 		translate === "l1" ? setTranslate("l2") : setTranslate("l1");
 	}
-	
+
 	return(
 		<div className={"display"}>
 			<div className={"card"} style={{transform:flipped}}onClick={flipCard}>{currentSet[counter][translate]}</div>
