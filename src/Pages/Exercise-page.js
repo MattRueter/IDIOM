@@ -1,6 +1,6 @@
 import {Menu, exerciseMenuButtons} from '../Components/Menu';
 import {Navbar, navbar} from '../Components/Navbar.js';
-import {Exercise} from '../Components/Exercise';
+import {Exercise} from '../Components/Exercises/Exercise';
 import { useSelector, useDispatch } from 'react-redux';
 import { exerciseSelected } from '../Reducers/exerciseReducer';
 
