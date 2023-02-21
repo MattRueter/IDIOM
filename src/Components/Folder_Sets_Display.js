@@ -55,9 +55,7 @@ function DisplaySets (){
 	const selectedLabels = labelArray.map((label,index)=>{
 		if(labelArray.length > 0){
 			return(
-				<ul>
 					<li>{label}</li>
-				</ul>
 			)
 		}
 	});
@@ -66,7 +64,9 @@ function DisplaySets (){
 		<div className={"displayROW"}>
 			<div className={"toolbar"}>
 				<h1>{currentFolder}</h1>
-				{selectedLabels}
+				<ul>
+					{selectedLabels}
+				</ul>
 				<button onClick={()=>{chooseSets(labelArray)}}>Choose sets</button>
 			</div>
 			{mySets}
