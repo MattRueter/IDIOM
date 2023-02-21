@@ -1,47 +1,86 @@
 import { useSelector, useDispatch} from "react-redux"
-import { folderAdded } from "../Reducers/folderReducer";
+import { wordLibrary } from "../Data/wordCollection";
+import { folderSelected } from "../Reducers/folderReducer";
+import { setSelected } from "../Reducers/setReducer"
+import { getLabelsFromSet, filterSets, removeDuplicates } from "../Utility_functions/utilities"
 
-export function DisplayFolders (){
+
+export function DisplayFolders_Sets(){
+	const state = useSelector((state) =>state);
+	if(state.viewReducer.currentView === "Show folders"){
+		return (
+			<DisplayFolders />
+		)
+	}else if(state.viewReducer.currentView === "Show sets"){
+		return(
+			<DisplaySets />
+		)
+	}
+}
+
+function DisplayFolders (){
 	const state = useSelector((state) =>state);
 	const myFolders =state.folderReducer.folders.map((folder,index)=>{
-		return <Folder folderTitle={folder} key={index}/>
+		return <Folder folderTitle={folder} key={index} />
 	});
-
 	return (
 		<div className={"displayROW"}>
 			{myFolders}
 		</div>
-	)
+	)	
 }
-export function DisplaySets (){
+function DisplaySets (){
+	const state = useSelector((state) =>state);
+	const dispatch = useDispatch()
+	const folderContents = wordLibrary.filter(word => word.folder === state.folderReducer.currentFolder)
+	const myLabels = removeDuplicates(folderContents.map(word => word.labels).flat())
+	
+	/////////////////////////////////////////////////////////////////////
+	let labelArray = [];
+	const chooseSets = (labelArray) => {
+		const set = filterSets(labelArray,state.folderReducer.currentFolder)
+		dispatch(setSelected(set))		
+	}
+
+	const createLabelArray = (label) => {
+		labelArray.push(label)
+		console.log(labelArray)
+	}
+	/////////////////////////////////////////////////////////////////////
+
+
+	const mySets = myLabels.map((label,index) =>{
+		return(
+			<Set handleClick={()=>{createLabelArray(label)}}label={label} key={index} />
+		)
+	})
+
 	return (
 		<div className={"displayROW"}>
-			<Set />
-			<Set />
-			<Set />
-			<Set />
-			<Set />
-			<Set />
-			<Set />
-			<Set />
-			<Set />
-			<Set />
+			<button onClick={()=>{chooseSets(labelArray)}}>Choose sets</button>
+			{mySets}
 		</div>
 	)
 }
 
-export const Folder = ({folderTitle}) =>{
+const Folder = ({folderTitle}) =>{
+	const dispatch = useDispatch();
+	const state = useSelector((state) => state);
+
+	const handleClick = () =>{
+		dispatch(folderSelected(folderTitle))
+	}
 	return(
-		<div className={"folder"}>
+		<div onClick={handleClick} className={"folder"}>
 			<div className={"folderTop"}>{folderTitle}</div>
 			<div className={"folderBottom"}></div>
 		</div>
 	)
 }
-export const Set = () =>{
+const Set = ({label,handleClick}) =>{
 	return (
-		<div className={"set"}>
-			<div className={".infoBox"}>TEXT</div>
+		<div onClick={handleClick}className={"set"}>
+			<div className={".infoBox"}>{label}</div>
 		</div>
 	)
 }
