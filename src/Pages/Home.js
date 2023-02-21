@@ -1,6 +1,6 @@
 import {Navbar} from '../Components/Navbar.js';
 import {Menu, menuButtons} from '../Components/Menu.js';
-import { DisplayFolders_Sets } from '../Components/FolderAndSetDisplay';
+import { DisplayFolders_Sets } from '../Components/Folder_Sets_Display';
 import { viewSelected } from "../Reducers/viewReducer"
 import { useSelector, useDispatch } from 'react-redux';
 
