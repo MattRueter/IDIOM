@@ -215,6 +215,13 @@ input:invalid{
   width:75%;
   margin:2%;
 }
+/* ////////////////// HOMEPage components////////*/
+.toolbar{
+  display:flex;
+  flex-direction:row;
+  width:90%;
+  padding:1%;
+}
 /*-----------------------  FOLDERS ----------------------*/
 .folder{
   height:100px;

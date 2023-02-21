@@ -31,10 +31,10 @@ function DisplayFolders (){
 }
 function DisplaySets (){
 	const state = useSelector((state) =>state);
+	const currentFolder =state.folderReducer.currentFolder;
 	const dispatch = useDispatch()
-	const folderContents = wordLibrary.filter(word => word.folder === state.folderReducer.currentFolder)
-	const myLabels = removeDuplicates(folderContents.map(word => word.labels).flat())
-	
+	const folderContents = wordLibrary.filter(word => word.folder === currentFolder)
+	const myLabels = removeDuplicates(folderContents.map(word => word.labels).flat())	
 	/////////////////////////////////////////////////////////////////////
 	let labelArray = [];
 	const chooseSets = (labelArray) => {
@@ -47,17 +47,22 @@ function DisplaySets (){
 		console.log(labelArray)
 	}
 	/////////////////////////////////////////////////////////////////////
-
-
 	const mySets = myLabels.map((label,index) =>{
 		return(
 			<Set handleClick={()=>{createLabelArray(label)}}label={label} key={index} />
 		)
 	})
-
 	return (
 		<div className={"displayROW"}>
-			<button onClick={()=>{chooseSets(labelArray)}}>Choose sets</button>
+			<div className={"toolbar"}>
+				<h1>{currentFolder}</h1>
+				<ul>
+					<li>set example 1</li>
+					<li>set example 2</li>
+					<li>set example 3</li>
+				</ul>
+				<button onClick={()=>{chooseSets(labelArray)}}>Choose sets</button>
+			</div>
 			{mySets}
 		</div>
 	)
