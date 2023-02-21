@@ -1,4 +1,7 @@
-import Button from './Button';
+import { useState, useEffect } from "react";
+import { useSelector } from 'react-redux';
+import Button from '../Button';
+import { FlipExercise } from "./FlipExercise"
 
 export function Exercise ({currentExercise}){
 	switch(currentExercise){
@@ -15,18 +18,6 @@ export function Exercise ({currentExercise}){
 		default:
 			return(<FlipExercise />);
 	}
-}
-
-const FlipExercise = () =>{
-	return(
-		<div className={"display"}>
-			<div className={"card"}>TEXT</div>
-			<div className={"buttonBox"}>
-				<Button buttonName={"<= Previous"}></Button> 
-				<Button buttonName={"Next =>"}></Button>
-			</div>
-		</div>
-	)
 }
 
 const MultiChoiceExercise = () =>{

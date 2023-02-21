@@ -27,7 +27,6 @@ export function getFolders (){
 	wordLibrary.forEach(word =>{
 		!folders.includes(word.folder) ? folders.push(word.folder) :console.log("getting your folders")
 	})
-	console.log(folders)
 	return folders;
 }
 
