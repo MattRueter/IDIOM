@@ -95,6 +95,7 @@ const Toolbar = ({ chooseSets }) => {
 		<div className={"toolbar"}>
 			<h1>{currentFolder}</h1>
 			<button className={"toolbarButton"} buttonName={"Choose a Set from the labels below"} onClick={() => { chooseSets(makeSetFrom) }}>Choose sets </button>
+			< button className={"toolbarButton"}>Edit wordlist</button>
 			<ul id={"label_list"}>
 				{selectedLabels}
 			</ul>
