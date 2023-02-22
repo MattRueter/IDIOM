@@ -38,6 +38,15 @@ body {
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 /*------------------------ Buttons  Menu ------------------------------------------------*/
+.menu {
+	border-radius: 20px;
+	height: 100vh;
+	width: 10%;
+	margin: 1%;
+	display: flex;
+	flex-direction: column;
+	background-color: #c6d2e3;
+}
 button{
   user-select: none;
   border-radius: 20px;

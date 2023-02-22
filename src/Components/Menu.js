@@ -1,14 +1,6 @@
 import Button from './Button.js';
 
-const menu ={
-	borderRadius: "20px",
-	height: "80vh",
-	width: "10%",
-	margin: "1%",
-	display: "flex",
-	flexDirection: "column",
-	backgroundColor: "#c6d2e3"
-}
+
 export const menuButtons=["Show folders","Show sets", "+ folder", "+ set", "+ word"];
 export const exerciseMenuButtons=["flip", "multiple-choice", "respond", "matching", "memory"]
 
@@ -21,7 +13,7 @@ export function Menu ({handleClick,buttonOptions}){
 	});	
 
 	return (
-		<div style={menu} className={"Menu"}>
+		<div className={"menu"} >
 			<div className={"menuItems"}>{buttons}</div>
 		</div>
 	)
