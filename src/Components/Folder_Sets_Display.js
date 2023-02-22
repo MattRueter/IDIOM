@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useSelector, useDispatch} from "react-redux"
 import { wordLibrary } from "../Data/wordCollection";
 import { folderSelected } from "../Reducers/folderReducer";
-import { setSelected } from "../Reducers/setReducer"
+import { setSelected, labelSelected } from "../Reducers/setReducer"
 import { getLabelsFromSet, filterSets, removeDuplicates } from "../Utility_functions/utilities"
 
 
@@ -31,27 +31,27 @@ function DisplayFolders (){
 	)	
 }
 function DisplaySets (){
-	const [ labelArray, setLabelArray ] = useState([])
 	const state = useSelector((state) =>state);
 	const currentFolder =state.folderReducer.currentFolder;
+	const labelArray = state.setReducer.labelArray;
 	const dispatch = useDispatch()
 	const folderContents = wordLibrary.filter(word => word.folder === currentFolder)
 	const myLabels = removeDuplicates(folderContents.map(word => word.labels).flat())	
 
-	const chooseSets = (labelArray) => {
-		const set = filterSets(labelArray,state.folderReducer.currentFolder)
+	const chooseSets = () => {
+		const set = filterSets(labelArray,currentFolder)
 		dispatch(setSelected(set))		
 	}
-
-	const createLabelArray = (label) => {
-		setLabelArray([...labelArray,label])
+	const selectLabel = (label) => {
+		dispatch(labelSelected(label))
 	}
 
 	const mySets = myLabels.map((label,index) =>{
 		return(
-			<Set handleClick={()=>{createLabelArray(label)}}label={label} key={index} />
+			<Set handleClick={selectLabel} label={label} key={index} />
 		)
 	})
+/*
 	const selectedLabels = labelArray.map((label,index)=>{
 		if(labelArray.length > 0){
 			return(
@@ -59,13 +59,13 @@ function DisplaySets (){
 			)
 		}
 	});
-
+*/
 	return (
 		<div className={"displayROW"}>
 			<div className={"toolbar"}>
 				<h1>{currentFolder}</h1>
 				<ul>
-					{selectedLabels}
+					<li>constructing</li>
 				</ul>
 				<button onClick={()=>{chooseSets(labelArray)}}>Choose sets</button>
 			</div>
@@ -90,7 +90,7 @@ const Folder = ({folderTitle}) =>{
 }
 const Set = ({label,handleClick}) =>{
 	return (
-		<div onClick={handleClick}className={"set"}>
+		<div onClick={()=> {handleClick(label)}} className={"set"}>
 			<div className={".infoBox"}>{label}</div>
 		</div>
 	)
