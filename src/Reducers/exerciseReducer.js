@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-	exercise: null
+	exercise: "flip"
 };
 
 export const exerciseSlice = createSlice({

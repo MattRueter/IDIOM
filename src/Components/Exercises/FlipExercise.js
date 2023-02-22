@@ -6,7 +6,7 @@ export const FlipExercise = () =>{
 	const [ counter, setCounter ] =useState(0);
 	const [ flipped, setFlipped ] =useState("");
 	const state = useSelector((state) => state);
-	const currentSet = state.setReducer.set;	
+	const currentSet = state.setReducer.set ? state.setReducer.set : [{l1:"No set selected", l2:"Choose a set by selecting labels within one of your folders."}]	
 	const [ translate, setTranslate ] = useState("l1")
 	
 	const lastWord = currentSet.length -1;
