@@ -43,7 +43,7 @@ function DisplaySets (){
 		dispatch(setSelected(set))		
 	}
 	const selectLabel = (label) => {
-		dispatch(labelSelected(label))
+		makeSetFrom.includes(label) ? alert(`${label} already choosen`) : dispatch(labelSelected(label))
 	}
 	const mySets = myLabels.map((label,index) =>{
 		return(

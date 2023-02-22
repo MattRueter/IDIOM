@@ -5,10 +5,9 @@ export const menuButtons=["Show folders","Show sets", "+ folder", "+ set", "+ wo
 export const exerciseMenuButtons=["flip", "multiple-choice", "respond", "matching", "memory"]
 
 export function Menu ({handleClick,buttonOptions}){
-
 	const buttons = buttonOptions.map((buttonName) => {
 		return (
-			<Button handleClick={handleClick}buttonName={buttonName} key={buttonOptions.indexOf(buttonName)}/>
+			<Button handleClick={handleClick} buttonName={buttonName} key={buttonOptions.indexOf(buttonName)}/>
 		)
 	});	
 
