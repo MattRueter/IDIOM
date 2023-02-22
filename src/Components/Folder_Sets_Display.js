@@ -30,16 +30,17 @@ function DisplayFolders (){
 		</div>
 	)	
 }
+
 function DisplaySets (){
 	const state = useSelector((state) =>state);
 	const currentFolder =state.folderReducer.currentFolder;
-	const labelArray = state.setReducer.labelArray;
+	const makeSetFrom = state.setReducer.makeSetFrom;
 	const dispatch = useDispatch()
 	const folderContents = wordLibrary.filter(word => word.folder === currentFolder)
 	const myLabels = removeDuplicates(folderContents.map(word => word.labels).flat())	
 
 	const chooseSets = () => {
-		const set = filterSets(labelArray,currentFolder)
+		const set = filterSets(makeSetFrom,currentFolder)
 		dispatch(setSelected(set))		
 	}
 	const selectLabel = (label) => {
@@ -51,23 +52,20 @@ function DisplaySets (){
 			<Set handleClick={selectLabel} label={label} key={index} />
 		)
 	})
-/*
-	const selectedLabels = labelArray.map((label,index)=>{
-		if(labelArray.length > 0){
-			return(
-					<li>{label}</li>
-			)
-		}
+	const selectedLabels = makeSetFrom.map(label => {
+		return (
+			<li>{label}</li>
+		)
 	});
-*/
+
 	return (
 		<div className={"displayROW"}>
 			<div className={"toolbar"}>
 				<h1>{currentFolder}</h1>
 				<ul>
-					<li>constructing</li>
+					{selectedLabels}
 				</ul>
-				<button onClick={()=>{chooseSets(labelArray)}}>Choose sets</button>
+				<button onClick={()=>{chooseSets(makeSetFrom)}}>Choose sets</button>
 			</div>
 			{mySets}
 		</div>

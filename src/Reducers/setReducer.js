@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
 	set: null,
-	labelArray:[]
+	makeSetFrom:[]
 }
 
 export const setSlice = createSlice({
@@ -11,10 +11,10 @@ export const setSlice = createSlice({
 	reducers: {
 		setSelected(state, action){
 			state.set = action.payload
-			state.labelArray = []
+			state.makeSetFrom = []
 		},
 		labelSelected(state,action){
-			state.labelArray =[...state.labelArray,action.payload]
+			state.makeSetFrom =[...state.makeSetFrom,action.payload]
 		}
 	}
 })
