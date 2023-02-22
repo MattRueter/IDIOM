@@ -1,9 +1,8 @@
-import { useState } from "react";
 import { useSelector, useDispatch} from "react-redux"
 import { wordLibrary } from "../Data/wordCollection";
 import { folderSelected } from "../Reducers/folderReducer";
 import { setSelected, labelSelected } from "../Reducers/setReducer"
-import { getLabelsFromSet, filterSets, removeDuplicates } from "../Utility_functions/utilities"
+import { filterSets, removeDuplicates } from "../Utility_functions/utilities"
 
 
 export function DisplayFolders_Sets(){
@@ -46,27 +45,15 @@ function DisplaySets (){
 	const selectLabel = (label) => {
 		dispatch(labelSelected(label))
 	}
-
 	const mySets = myLabels.map((label,index) =>{
 		return(
 			<Set handleClick={selectLabel} label={label} key={index} />
 		)
 	})
-	const selectedLabels = makeSetFrom.map(label => {
-		return (
-			<li>{label}</li>
-		)
-	});
 
 	return (
 		<div className={"displayROW"}>
-			<div className={"toolbar"}>
-				<h1>{currentFolder}</h1>
-				<ul>
-					{selectedLabels}
-				</ul>
-				<button onClick={()=>{chooseSets(makeSetFrom)}}>Choose sets</button>
-			</div>
+			<Toolbar chooseSets={chooseSets} />
 			{mySets}
 		</div>
 	)
@@ -90,6 +77,26 @@ const Set = ({label,handleClick}) =>{
 	return (
 		<div onClick={()=> {handleClick(label)}} className={"set"}>
 			<div className={".infoBox"}>{label}</div>
+		</div>
+	)
+}
+const Toolbar = ({chooseSets}) => {
+	const state = useSelector((state) =>state);
+	const currentFolder =state.folderReducer.currentFolder;
+	const makeSetFrom = state.setReducer.makeSetFrom;
+
+	const selectedLabels = makeSetFrom.map(label => {
+		return (
+			<li>{label}</li>
+		)
+	});
+	return(
+		<div className={"toolbar"}>
+			<h1>{currentFolder}</h1>
+			<ul>
+				{selectedLabels}
+			</ul>
+			<button onClick={()=>{chooseSets(makeSetFrom)}}>Choose sets</button>
 		</div>
 	)
 }
