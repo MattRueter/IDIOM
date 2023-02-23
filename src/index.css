@@ -229,7 +229,8 @@ input:invalid{
   border-top:none;
   border-left:none;
   border-right:none;
-  border-bottom:1px solid black;
+  border-bottom:3px solid black;
+  border-radius:5px;
   font-size:xx-large;
 }
 .CardColumn{
