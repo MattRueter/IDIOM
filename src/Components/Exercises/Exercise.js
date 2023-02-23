@@ -25,14 +25,14 @@ const MultiChoiceExercise = () =>{
 		<div className={"display"}>
 			<div className={"card"}>TEXT</div>
 			<div className={"buttonBox"}>
-				<Button buttonName={"option"}></Button>
-				<Button buttonName={"option"}></Button>
-				<Button buttonName={"option"}></Button>
-				<Button buttonName={"option"}></Button>
+				<Button className={"exerciseButton"}buttonName={"option"}></Button>
+				<Button className={"exerciseButton"}  buttonName={"option"}></Button>
+				<Button className={"exerciseButton"}  buttonName={"option"}></Button>
+				<Button className={"exerciseButton"}  buttonName={"option"}></Button>
 			</div>
 			<div className={"buttonBox"}>
-				<Button buttonName={"<= Previous"}></Button> 
-				<Button buttonName={"Next =>"}></Button>
+				<Button className={"exerciseButton"}  buttonName={"<= Previous"}></Button> 
+				<Button className={"exerciseButton"}  buttonName={"Next =>"}></Button>
 			</div>
 		</div>
 	)
@@ -44,8 +44,8 @@ const ResponseExercise = () =>{
 			<div className={"card"}>TEXT</div>
 			<input className={"exerciseInput"}></input>
 			<div className={"buttonBox"}>
-				<Button buttonName={"<= Previous"}></Button> 
-				<Button buttonName={"Next =>"}></Button>
+				<Button className={"exerciseButton"}  buttonName={"<= Previous"}></Button> 
+				<Button className={"exerciseButton"}  buttonName={"Next =>"}></Button>
 			</div>
 		</div>
 	)

@@ -40,8 +40,8 @@ export const FlipExercise = () =>{
 		<div className={"display"}>
 			<div className={"card"} style={{transform:flipped}}onClick={flipCard}>{currentSet[counter][translate]}</div>
 			<div className={"buttonBox"}>
-				<Button handleClick={changeCard} buttonName={previous}></Button> 
-				<Button handleClick={changeCard} buttonName={next}></Button>
+				<Button className={"exerciseButton"} handleClick={changeCard} buttonName={previous}></Button> 
+				<Button className={"exerciseButton"} handleClick={changeCard} buttonName={next}></Button>
 			</div>
 		</div>
 	)

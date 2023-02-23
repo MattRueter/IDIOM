@@ -8,7 +8,7 @@ export default function LoginForm ({logo}) {
 				<div className ='smLogo'></div>
 				<input type = 'text' className = 'loginInput' id = 'user' minLength = '3' placeholder= "Username" required></input>
 				<input type = 'text' className = 'loginInput' id = 'password' minLength ='7' placeholder = "Password" required></input>
-				<Button id ='signin' type = 'button' action={"Sign in"}/>
+				<Button className={"btnLink"}id ='signin' type = 'button' buttonName={"Sign in"}/>
 				<Link to='/home' className="btnLink">
 					Try Demo
 				</Link>
