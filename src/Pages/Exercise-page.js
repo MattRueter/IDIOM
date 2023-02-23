@@ -17,9 +17,7 @@ export default function ExercisePage (){
 		<div className={"exercisePage"}>
 			<Navbar />
 			<Menu handleClick={handleClick}buttonOptions={exerciseMenuButtons}/>
-			<div className={"container"}>
-				<Exercise currentExercise={currentExercise}/>
-			</div>
+			<Exercise currentExercise={currentExercise}/>
 		</div>
 	)
 }

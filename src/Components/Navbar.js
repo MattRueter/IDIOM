@@ -5,7 +5,8 @@ export const navbar ={
 	justifyContent: "space-between",
 	alignItems: "center",
 	backgroundColor: "#8ca8bfde",
-	height: "80px"
+	height: "80px",
+	width:"100%"
 }
 export const contentContainer={
 	display:"flex",

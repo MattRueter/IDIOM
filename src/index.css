@@ -6,12 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.container{
-  display:flex;
-  justify-content:flex-start;
-  height:100vh;
-  width:100%;
-}
+
 /*----------------- LINKS  ----------------------------------*/
 .btnLink{
   user-select: none;
@@ -47,6 +42,7 @@ body {
 	display: flex;
 	flex-direction: row;
 	background-color: #c6d2e3;
+  z-index:1;
 }
 .exerciseButton{
   user-select: none;
@@ -111,15 +107,17 @@ button:hover{
 }
 .homePage{
   background-image: url("./Images/idiomBackground2.png");
-  height:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 }
 .loginFormPage{
   background-image: url("./Images/idiomBackground2.png");
-  height:100%;
+ 
 }
 .exercisePage{
   background-image: url("./Images/idiomBackground2.png");
-  height:100%;
+ 
 }
 /*////////////////////////////////////////////////////////////*/
 /*Login component*/
@@ -174,7 +172,7 @@ input:invalid{
   background-color:rgba(255, 192, 203, 0.938);
   margin:2%;
   min-height:350px;
-  width:90%;
+  width:80%;
   display:flex;
   flex-direction: column;
   justify-content: center;
@@ -185,7 +183,7 @@ input:invalid{
   background-color:rgba(255, 192, 203, 0.938);
   margin: 2%;
   min-height:350px;
-  width:90%;
+  width:80%;
   display:flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -268,8 +266,13 @@ input:invalid{
   background-color: #7b93b4;
 }
 #label_list{
+  border-radius:5px;
+  background-color:rgb(252, 253, 154);
   display:flex;
   flex-direction: column;
+  align-items:flex-start;
+  width:20%;
+  padding:1%;
 }
 #label_list>*{
   margin:5%;
