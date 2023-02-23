@@ -1,3 +1,4 @@
+import { Toolbar } from "../Components/Toolbar"
 import Button from './Button.js';
 
 export const menuButtons=["Show folders","Show sets", "+ folder", "+ set", "+ word"];
@@ -13,6 +14,7 @@ export function Menu ({handleClick,buttonOptions}){
 	return (
 		<div className={"menu"} >
 			<div className={"menuItems"}>{buttons}</div>
+			<Toolbar />
 		</div>
 	)
 }

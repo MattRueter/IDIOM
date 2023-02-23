@@ -18,7 +18,6 @@ export default function Home() {
     <div className={"homePage"}>        
       <Navbar />
       <Menu handleClick={handleClick}buttonOptions={menuButtons}/>
-      <Toolbar/>
       <div className={"container"}>        
         <DisplayFolders_Sets/>
       </div>

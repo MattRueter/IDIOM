@@ -20,8 +20,8 @@ export const Toolbar = () => {
 	return (
 		<div className={"toolbar"}>
 			<h1>{currentFolder}</h1>
-			<button className={"toolbarButton"} onClick={() => { chooseSets(makeSetFrom) }}>Choose sets </button>
-			< button className={"toolbarButton"}>Edit wordlist</button>
+			<button className={"menuButton"} onClick={() => { chooseSets(makeSetFrom) }}>Choose sets </button>
+			< button className={"menuButton"}>Edit wordlist</button>
 			<ul id={"label_list"}>
 				{selectedLabels}
 			</ul>
