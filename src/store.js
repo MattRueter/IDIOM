@@ -1,8 +1,8 @@
 import {configureStore} from "@reduxjs/toolkit";
-import { setSlice,setSelected } from "./Reducers/setReducer";
-import { exerciseSlice, exerciseSelected } from "./Reducers/exerciseReducer";
-import { folderSlice, folderAdded } from "./Reducers/folderReducer"
-import { viewSlice, viewSelected } from "./Reducers/viewReducer"
+import { setSlice } from "./Reducers/setReducer";
+import { exerciseSlice } from "./Reducers/exerciseReducer";
+import { folderSlice } from "./Reducers/folderReducer"
+import { viewSlice } from "./Reducers/viewReducer"
 
 const store = configureStore({
 	reducer:{

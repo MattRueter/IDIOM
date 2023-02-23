@@ -67,7 +67,6 @@ const Set = ({ label }) => {
 	const dispatch = useDispatch()
 	const makeSetFrom = state.setReducer.makeSetFrom;
 	const selectLabel = (label) => {
-		console.log(`clicked ${label} label`)
 		makeSetFrom.includes(label) ? alert(`${label} already choosen`) : dispatch(labelSelected(label))
 	}
 	return (

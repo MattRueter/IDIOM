@@ -9,7 +9,7 @@ export const Toolbar = () => {
 	const makeSetFrom = state.setReducer.makeSetFrom;
 	const dispatch = useDispatch()
 	const chooseSets = () => {
-	const set = filterSets(makeSetFrom, currentFolder)
+		const set = filterSets(makeSetFrom, currentFolder)
 		dispatch(setSelected(set))
 	}
 	const selectedLabels = makeSetFrom.map((label,index) => {
