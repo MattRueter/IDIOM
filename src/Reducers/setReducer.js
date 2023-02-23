@@ -1,7 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { getLabelsFromSet } from "../Utility_functions/utilities"
 
 const initialState = {
 	set: null,
+	currentSetLabels:[],
 	makeSetFrom:[]
 }
 
@@ -11,11 +13,15 @@ export const setSlice = createSlice({
 	reducers: {
 		setSelected(state, action){
 			state.set = action.payload
+			state.currentSetLabels = [...state.makeSetFrom]
 			state.makeSetFrom = []
 		},
+		setLabelsUpdated(state,action){
+			console.log("constructing reducer.")
+		},
 		labelSelected(state,action){
-			state.makeSetFrom =[...state.makeSetFrom,action.payload]
+			state.makeSetFrom =[...state.makeSetFrom, action.payload]
 		}
 	}
 })
-export const { setSelected, labelSelected } = setSlice.actions
+export const { setSelected, labelSelected, setLabelsUpdated } = setSlice.actions
