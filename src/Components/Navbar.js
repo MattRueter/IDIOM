@@ -2,7 +2,7 @@ import {Link} from 'react-router-dom';
 
 export const navbar ={
 	display: "flex",
-	justifyContent: "center",
+	justifyContent: "space-between",
 	alignItems: "center",
 	backgroundColor: "#8ca8bfde",
 	height: "80px"
