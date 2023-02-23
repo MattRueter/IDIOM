@@ -12,11 +12,10 @@ export const setSlice = createSlice({
 	initialState,
 	reducers: {
 		setSelected(state, action){
-			if(state.makeSetFrom.length>=1){
 				state.set = action.payload
 				state.currentSetLabels = [...state.makeSetFrom]
 				state.makeSetFrom = []
-			}
+			
 		},
 		setLabelsUpdated(state,action){
 			console.log("constructing reducer.")

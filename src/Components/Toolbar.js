@@ -9,8 +9,11 @@ export const Toolbar = () => {
 	const makeSetFrom = state.setReducer.makeSetFrom;
 	const dispatch = useDispatch()
 	const chooseSets = () => {
-		const set = filterSets(makeSetFrom, currentFolder)
-		dispatch(setSelected(set))
+		if(makeSetFrom.length >=1){
+			const set = filterSets(makeSetFrom, currentFolder)
+			dispatch(setSelected(set))
+		}
+		//then go to exercise page 
 	}
 	const selectedLabels = makeSetFrom.map((label,index) => {
 		return (
