@@ -34,31 +34,19 @@ function DisplayFolders() {
 function DisplaySets() {
 	const state = useSelector((state) => state);
 	const currentFolder = state.folderReducer.currentFolder;
-	const makeSetFrom = state.setReducer.makeSetFrom;
-	const dispatch = useDispatch()
 	const folderContents = wordLibrary.filter(word => word.folder === currentFolder)
 	const myLabels = removeDuplicates(folderContents.map(word => word.labels).flat())
-
-	const chooseSets = () => {
-		const set = filterSets(makeSetFrom, currentFolder)
-		dispatch(setSelected(set))
-	}
-	const selectLabel = (label) => {
-		makeSetFrom.includes(label) ? alert(`${label} already choosen`) : dispatch(labelSelected(label))
-	}
 	const mySets = myLabels.map((label, index) => {
 		return (
-			<Set handleClick={selectLabel} label={label} key={index} />
+			<Set label={label} key={index} />
 		)
 	})
-
 	return (
 		<div className={"displayROW"}>
-			<Toolbar chooseSets={chooseSets} />
 			{mySets}
 		</div>
 	)
-}
+};
 
 const Folder = ({ folderTitle }) => {
 	const dispatch = useDispatch();
@@ -74,31 +62,17 @@ const Folder = ({ folderTitle }) => {
 		</div>
 	)
 }
-const Set = ({ label, handleClick }) => {
+const Set = ({ label }) => {
+	const state = useSelector((state) => state);
+	const dispatch = useDispatch()
+	const makeSetFrom = state.setReducer.makeSetFrom;
+	const selectLabel = (label) => {
+		console.log(`clicked ${label} label`)
+		makeSetFrom.includes(label) ? alert(`${label} already choosen`) : dispatch(labelSelected(label))
+	}
 	return (
-		<div onClick={() => { handleClick(label) }} className={"set"}>
+		<div onClick={() => { selectLabel(label) }} className={"set"}>
 			<div className={".infoBox"}>{label}</div>
 		</div>
 	)
-}
-const Toolbar = ({ chooseSets }) => {
-	const state = useSelector((state) => state);
-	const currentFolder = state.folderReducer.currentFolder;
-	const makeSetFrom = state.setReducer.makeSetFrom;
-
-	const selectedLabels = makeSetFrom.map(label => {
-		return (
-			<li>{label}</li>
-		)
-	});
-	return (
-		<div className={"toolbar"}>
-			<h1>{currentFolder}</h1>
-			<button className={"toolbarButton"} buttonName={"Choose a Set from the labels below"} onClick={() => { chooseSets(makeSetFrom) }}>Choose sets </button>
-			< button className={"toolbarButton"}>Edit wordlist</button>
-			<ul id={"label_list"}>
-				{selectedLabels}
-			</ul>
-		</div>
-	)
-}
+};
