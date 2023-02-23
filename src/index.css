@@ -6,7 +6,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+.pushContainer{
+  height:100vh;
+}
 /*----------------- LINKS  ----------------------------------*/
 .btnLink{
   user-select: none;
@@ -117,7 +119,9 @@ button:hover{
 }
 .exercisePage{
   background-image: url("./Images/idiomBackground2.png");
- 
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 }
 /*////////////////////////////////////////////////////////////*/
 /*Login component*/
