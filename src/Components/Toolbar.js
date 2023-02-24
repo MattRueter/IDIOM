@@ -28,9 +28,10 @@ export const Toolbar = () => {
 				</ul>				
 			</div>
 			<div className={"toolbarButtonContainer"}>
-				<Link to='/exercises'  className={"link"} onClick={() => { chooseSets(makeSetFrom) }}>Exercises</Link>				
-				<button className={"menuButton"}>Edit wordlist</button>
+				<Link to='/exercises'  className={"exerciseLinkBtn"} onClick={() => { chooseSets(makeSetFrom) }}>Save set & go to exercises</Link>				
 			</div>
 		</div>
 	)
 };
+//Hide nonimplemented buttons for production build
+//<button className={"menuButton"}>Edit wordlist</button>
