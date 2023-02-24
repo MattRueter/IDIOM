@@ -22,12 +22,16 @@ export const FlipExercise = () =>{
 	
 	const changeCard = (command) =>{
 		setTranslate("l1");
-		if(counter > 0 && counter < lastWord){
-			command === next ? setCounter(counter + 1) : setCounter(counter - 1);
-		}else if(counter === 0) {
-			command === next ? setCounter(counter + 1) : setCounter(lastWord);
-		}else if(counter === lastWord){
-			command === next ? setCounter( 0 ) : setCounter(counter - 1);
+		if(lastWord > 0){
+			if(counter > 0 && counter < lastWord){
+				command === next ? setCounter(counter + 1) : setCounter(counter - 1);
+			}else if(counter === 0) {
+				console.log(`SECOND CHECK: length equals ${lastWord} counter equals ${counter}`)
+				command === next ? setCounter(counter + 1) : setCounter(lastWord);
+			}else if(counter === lastWord){
+				console.log(`LAST CHECK: length equals ${lastWord} counter equals ${counter}`)
+				command === next ? setCounter( 0 ) : setCounter(counter - 1);
+			}
 		}
 	}
 
