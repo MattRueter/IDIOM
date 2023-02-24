@@ -1,2 +1,2 @@
 # IDIOM
-A self-study language suite...eventually.
+A foreign language self-study suite...eventually.
