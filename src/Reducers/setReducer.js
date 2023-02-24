@@ -1,16 +1,28 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { getLabelsFromSet } from "../Utility_functions/utilities"
 
 const initialState = {
-	set: null
+	set: null,
+	currentSetLabels:[],
+	makeSetFrom:[]
 }
-//RTK sliceReducer
+
 export const setSlice = createSlice({
 	name: "sets",
 	initialState,
 	reducers: {
 		setSelected(state, action){
-			state.set = action.payload
+				state.set = action.payload
+				state.currentSetLabels = [...state.makeSetFrom]
+				state.makeSetFrom = []
+			
+		},
+		setLabelsUpdated(state,action){
+			console.log("constructing reducer.")
+		},
+		labelSelected(state,action){
+			state.makeSetFrom =[...state.makeSetFrom, action.payload]
 		}
 	}
 })
-export const { setSelected } = setSlice.actions
+export const { setSelected, labelSelected, setLabelsUpdated } = setSlice.actions
