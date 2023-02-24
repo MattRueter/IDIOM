@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux"
-//import Button from "./Button"
+import {Link} from 'react-router-dom';
 import { setSelected } from "../Reducers/setReducer"
 import { filterSets } from "../Utility_functions/utilities"
 
@@ -12,8 +12,7 @@ export const Toolbar = () => {
 		if(makeSetFrom.length >=1){
 			const set = filterSets(makeSetFrom, currentFolder)
 			dispatch(setSelected(set))
-		}
-		//then go to exercise page 
+		}	
 	}
 	const selectedLabels = makeSetFrom.map((label,index) => {
 		return (
@@ -29,7 +28,7 @@ export const Toolbar = () => {
 				</ul>				
 			</div>
 			<div className={"toolbarButtonContainer"}>
-				<button className={"menuButton"} onClick={() => { chooseSets(makeSetFrom) }}>Exercises</button>
+				<Link to='/exercises'  className={"link"} onClick={() => { chooseSets(makeSetFrom) }}>Exercises</Link>				
 				<button className={"menuButton"}>Edit wordlist</button>
 			</div>
 		</div>
