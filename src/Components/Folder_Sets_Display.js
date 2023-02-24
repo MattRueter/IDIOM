@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux"
 import Button from "./Button"
 import { wordLibrary } from "../Data/wordCollection";
 import { folderSelected } from "../Reducers/folderReducer";
+import { viewSelected } from "../Reducers/viewReducer"
 import { setSelected, labelSelected } from "../Reducers/setReducer"
 import { filterSets, removeDuplicates } from "../Utility_functions/utilities"
 
@@ -53,7 +54,8 @@ const Folder = ({ folderTitle }) => {
 	const state = useSelector((state) => state);
 
 	const handleClick = () => {
-		dispatch(folderSelected(folderTitle))
+		dispatch(folderSelected(folderTitle));
+		dispatch(viewSelected("Show sets"))
 	}
 	return (
 		<div onClick={handleClick} className={"folder"}>
@@ -67,7 +69,7 @@ const Set = ({ label }) => {
 	const dispatch = useDispatch()
 	const makeSetFrom = state.setReducer.makeSetFrom;
 	const selectLabel = (label) => {
-		makeSetFrom.includes(label) ? alert(`${label} already choosen`) : dispatch(labelSelected(label))
+		makeSetFrom.includes(label) ? alert(`${label} already choosen`) : dispatch(labelSelected(label));
 	}
 	return (
 		<div onClick={() => { selectLabel(label) }} className={"set"}>
