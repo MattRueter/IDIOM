@@ -26,10 +26,8 @@ export const FlipExercise = () =>{
 			if(counter > 0 && counter < lastWord){
 				command === next ? setCounter(counter + 1) : setCounter(counter - 1);
 			}else if(counter === 0) {
-				console.log(`SECOND CHECK: length equals ${lastWord} counter equals ${counter}`)
 				command === next ? setCounter(counter + 1) : setCounter(lastWord);
 			}else if(counter === lastWord){
-				console.log(`LAST CHECK: length equals ${lastWord} counter equals ${counter}`)
 				command === next ? setCounter( 0 ) : setCounter(counter - 1);
 			}
 		}
