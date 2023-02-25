@@ -1,4 +1,4 @@
-import {BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './Pages/Home.js';
 import LandingPage from './Pages/Landing-page.js';
 import LoginPage from './Pages/Login-page.js';
@@ -11,14 +11,14 @@ export default function Routeswitch () {
 
 	return(
 		<Provider store ={store}>
-		<BrowserRouter>
+		<HashRouter>
 			<Routes>
 				<Route path='/' element={<LandingPage/>}/>
 				<Route path='home' element={<Home/>}/>
 				<Route path='exercises' element={<ExercisePage/>}/>
 				<Route path='login' element={<LoginPage/>}/>
 			</Routes>
-		</BrowserRouter>
+		</HashRouter>
 		</Provider>
 	)
 }
