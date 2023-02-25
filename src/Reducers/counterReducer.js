@@ -16,7 +16,15 @@ export const counterSlice = createSlice({
 		},
 		counterDecreased( state ){
 			state.counter --;
+		},
+		counterManuallySet( state, action ){
+			state.counter = action.payload;
 		}
 	}
 })
-export const { counterReset, counterIncreased, counterDecreased } = counterSlice.actions
+export const { 
+	counterReset, 
+	counterIncreased, 
+	counterDecreased,
+	counterManuallySet
+} = counterSlice.actions
