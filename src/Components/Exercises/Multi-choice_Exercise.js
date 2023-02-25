@@ -13,8 +13,7 @@ export const MultiChoiceExercise = () =>{
 				<Button className={"exerciseButton"}  buttonName={"option"}></Button>
 			</div>
 			<div className={"buttonBox"}>
-				<Button className={"exerciseButton"}  buttonName={"<= Previous"}></Button> 
-				<Button className={"exerciseButton"}  buttonName={"Next =>"}></Button>
+				<Button className={"exerciseButton"}  buttonName={"Check"}></Button> 
 			</div>
 		</div>
 	)
