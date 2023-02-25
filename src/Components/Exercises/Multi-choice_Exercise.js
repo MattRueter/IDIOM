@@ -1,45 +1,45 @@
-import { useState, useEffect } from "react";
-import { useSelector } from 'react-redux';
+import { useState } from "react";
+import { useSelector, useDispatch } from 'react-redux';
+import { counterReset, counterIncreased  } from "../../Reducers/counterReducer"
 import Button from '../Button';
 
 export const MultiChoiceExercise = () =>{
 	const state = useSelector((state) =>state);
+	const dispatch = useDispatch();
 	const currentSet = state.setReducer.set;
-	const [ counter, setCounter] = useState(0)
-	const [ next ] = useState("Next")
-	const [ translate, setTranslate ] = useState("l1")
-	const lastWord =currentSet.length-1;
-	//STATE to consume here:
-	// set (from Store)
-	// options - make from all l2 words in FOLDER ( add to Store currently in Home comp.???) but must include current word's l2:value.
-	// message component (A: congrats! B: Try again)
-	//EVENTS:
-	// click "opton" : resets SELECTED ANSWER object
-	// click "check" : 1) compares SELECTED ANSWER to current word l2:value returns TRUE or FALSE.
-	//				   2) goes to next word in list (make use of function in Flip Exercise ?) 					
+	const currentIndex = state.counterReducer.counter;
+
 	
-	// dealing with Random()???
+	const [ translate, setTranslate ] = useState("l1")
+	const lastWordIndex = currentSet.length-1;
 	
 	const checkAnswer = () =>{
-
-		changeCard()
+		// is selected answer === correct answer ?
+			//yes? then send feedback to UI and push word obj to correct array.
+			//no? then send feedback toUI and push word obj to incorrect array.
+		
+		//Is this the last word?
+			//yes? Is the incorrect array empty?
+				//yes? then send Congrats msg.
+					//...and RESET game using original Set from Store.
+				//no? then send Try again msg.
+					//...and RESET game using Incorrect array.
+			//No? Then continue.
+		nextCard()
 	}
 	
-	const changeCard = (command) =>{
-		setTranslate("l1");
-		if(lastWord > 0){
-			if(counter > 0 && counter < lastWord){
-				command === next ? setCounter(counter + 1) : setCounter(counter - 1);
-			}else if(counter === 0) {
-				command === next ? setCounter(counter + 1) : setCounter(lastWord);
-			}else if(counter === lastWord){
-				command === next ? setCounter( 0 ) : setCounter(counter - 1);
+	const nextCard = () =>{
+		if(lastWordIndex > 0){
+			if(currentIndex < lastWordIndex){
+				dispatch(counterIncreased());
+			}else if(currentIndex === lastWordIndex){
+				dispatch(counterReset())
 			}
 		}
-	}
+	};
 	return(
 		<div className={"display"}>
-			<div className={"card"}>{currentSet[counter][translate]}</div>
+			<div className={"card"}>{currentSet[currentIndex][translate]}</div>
 			<div className={"buttonBox"}>
 				<Button className={"exerciseButton"} buttonName={"option"}></Button>
 				<Button className={"exerciseButton"} buttonName={"option"}></Button>
