@@ -7,17 +7,11 @@ const client = new MongoClient(Db)
 
 var _db;
 
-async function listDatabases(client) {
-	databasesList = await client.db().admin().listDatabases();
-
-	console.log("Databases");
-	_db = databasesList.databases[0].name;
-	const clientLibraries = await client.db(_db).collection("_Word_Libraries")
-	const myWords = await client.db(_db).collection("_Word_Libraries").findOne({ library_id:0 });
-	//console.log(clientLibraries)
-	console.log(myWords)
-
-	databasesList.databases.forEach(db => console.log(` - ${db.name}`));
+async function getWords(client) {
+	_db = "idiom_Client_DB"
+	const DemoLibrary = await client.db(_db).collection("_Word_Libraries").findOne({ library_id:0 });
+	const myWords = DemoLibrary.words
+	console.log(myWords)	
 };
 
 
@@ -25,15 +19,14 @@ async function run () {
 	try {
 		await client.connect();
 		console.log("Connected successfully to server.");
-
-		await listDatabases(client)
+		await getWords(client)
 	}catch (e){
 		console.error(e);
 	}finally {
 		await client.close()
 	}
 }
-//run().catch(console.dir);
+run().catch(console.dir);
 
 
 module.exports = {
