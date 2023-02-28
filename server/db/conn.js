@@ -8,8 +8,8 @@ const client = new MongoClient(Db)
 var _db;
 
 async function getWords(client) {
-	_db = "idiom_Client_DB"
-	const DemoLibrary = await client.db(_db).collection("_Word_Libraries").findOne({ library_id:0 });
+	_db = "idiomDB"
+	const DemoLibrary = await client.db(_db).collection("Libraries").findOne({ library_id:0 });
 	const myWords = DemoLibrary.words
 	console.log(myWords)	
 };
