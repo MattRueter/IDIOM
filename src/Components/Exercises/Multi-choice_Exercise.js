@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { counterReset, counterIncreased  } from "../../Reducers/counterReducer"
+import { nextCardSelected } from "../../Reducers/exerciseReducer";
 import Button from '../Button';
 
 export const MultiChoiceExercise = () =>{
@@ -8,7 +9,7 @@ export const MultiChoiceExercise = () =>{
 	const dispatch = useDispatch();
 	const currentSet = state.setReducer.set;
 	const currentIndex = state.counterReducer.counter;
-
+	const currentWord = state.exerciseReducer.multipleChoice.currentWord;
 	
 	const [ translate, setTranslate ] = useState("l1")
 	const lastWordIndex = currentSet.length-1;
@@ -25,6 +26,7 @@ export const MultiChoiceExercise = () =>{
 				//no? then send Try again msg.
 					//...and RESET game using Incorrect array.
 			//No? Then continue.
+		dispatch(nextCardSelected(currentSet[currentIndex]))
 		nextCard()
 	}
 	
@@ -39,7 +41,7 @@ export const MultiChoiceExercise = () =>{
 	};
 	return(
 		<div className={"display"}>
-			<div className={"card"}>{currentSet[currentIndex][translate]}</div>
+			<div className={"card"}>{currentWord}</div>
 			<div className={"buttonBox"}>
 				<Button className={"exerciseButton"} buttonName={"option"}></Button>
 				<Button className={"exerciseButton"} buttonName={"option"}></Button>
