@@ -23,7 +23,7 @@ export const Toolbar = () => {
 	});
 
 	const toggleTranslation = () => {
-		dispatch(languageDirectionChanged())
+		dispatch(languageDirectionChanged());
 	}
 	
 	return (
@@ -41,5 +41,3 @@ export const Toolbar = () => {
 		</div>
 	)
 };
-//Hide nonimplemented buttons for production build
-//<button className={"menuButton"}>Edit wordlist</button>

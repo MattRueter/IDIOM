@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { counterReset, counterIncreased  } from "../../Reducers/counterReducer"
-import { nextCardSelected } from "../../Reducers/exerciseReducer";
+import { currentWordChanged } from "../../Reducers/exerciseReducer";
 import Button from '../Button';
 
 export const MultiChoiceExercise = () =>{
@@ -9,9 +9,18 @@ export const MultiChoiceExercise = () =>{
 	const dispatch = useDispatch();
 	const currentSet = state.setReducer.set;
 	const currentIndex = state.counterReducer.counter;
-	const currentWord = state.exerciseReducer.multipleChoice.currentWord;
+	const currentWord = state.exerciseReducer.currentWord[0];
+	const languageDirection =state.exerciseReducer.languageDirection;
 	const lastWordIndex = currentSet.length-1;
 	
+	useEffect(() => {
+		dispatch(currentWordChanged(currentSet[0]))
+	},[])
+
+	useEffect (() => {
+		dispatch(currentWordChanged(currentSet[currentIndex]))
+	},[languageDirection, currentIndex]);
+
 	const checkAnswer = () =>{
 		// is selected answer === correct answer ?
 			//yes? then send feedback to UI and push word obj to correct array.
@@ -24,8 +33,7 @@ export const MultiChoiceExercise = () =>{
 				//no? then send Try again msg.
 					//...and RESET game using Incorrect array.
 			//No? Then continue.
-		dispatch(nextCardSelected(currentSet[currentIndex]))
-		nextCard()
+			nextCard()
 	}
 	
 	const nextCard = () =>{

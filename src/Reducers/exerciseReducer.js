@@ -3,9 +3,8 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
 	languageDirection: ["l1","l2"],
 	currentExercise: "flip",
+	currentWord:["",""],
 	multipleChoice:{
-		currentWord:"",
-		answer:"",
 		options:[],
 	}
 };
@@ -20,13 +19,15 @@ export const exerciseSlice = createSlice({
 		exerciseSelected(state, action){
 			state.currentExercise = action.payload
 		},
-		nextCardSelected(state, action){
-			const word =action.payload.l1;
-			const answer = action.payload.l2;
+		currentWordChanged(state, action){
+			const fromLanguage = state.languageDirection[0];
+			const targetLanguage = state.languageDirection[1];
+			const word = action.payload[fromLanguage];
+			const answer = action.payload[targetLanguage];
 
-			state.multipleChoice.currentWord = word;
-			state.multipleChoice.answer =answer;
+			state.currentWord[0] = word;
+			state.currentWord[1] = answer;
 		}
 	}
 });
-export const { exerciseSelected, nextCardSelected, languageDirectionChanged } = exerciseSlice.actions;
+export const { exerciseSelected, currentWordChanged, languageDirectionChanged } = exerciseSlice.actions;
