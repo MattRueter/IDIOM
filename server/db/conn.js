@@ -6,12 +6,12 @@ const Db = process.env.ATLAS_URI;
 const client = new MongoClient(Db)
 
 var _db;
-
+var myWords;
 async function getWords(client) {
 	_db = "idiomDB"
 	const DemoLibrary = await client.db(_db).collection("Libraries").findOne({ library_id:0 });
-	const myWords = DemoLibrary.words
-	console.log(myWords)	
+	myWords = DemoLibrary.words
+		
 };
 
 
@@ -20,14 +20,13 @@ async function run () {
 		await client.connect();
 		console.log("Connected successfully to server.");
 		await getWords(client)
+		console.log(myWords)// globabl myWords now populated.
 	}catch (e){
 		console.error(e);
 	}finally {
 		await client.close()
 	}
 }
-run().catch(console.dir);
-
 
 module.exports = {
 	connectToServer: function () {
@@ -36,4 +35,7 @@ module.exports = {
 	getDb: function () {
 		return _db;
 	},
+	getMyWords: function (){
+		return myWords;
+	}
 };

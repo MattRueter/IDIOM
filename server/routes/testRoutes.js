@@ -12,14 +12,7 @@ const dbo = require("../db/conn");
 const ObjectId = require("mongodb").ObjectId;
 
 //This section will help you get a list of all the records.
-wordRoutes.route("/words").get(function (req, res) {
-	let db_connect = dbo.getDb("idiom_Client_DB");
-	db_connect
-		.collection("_Word_Libraries")
-		.find({})
-		.toArray(function (err, result){
-			if(err) throw err;
-			res.json(result)
-		});
+wordRoutes.route("/testRoute1").get(function (req, res) {
+	res.send("heres looking at you kid.")
 });
 module.exports = wordRoutes;
