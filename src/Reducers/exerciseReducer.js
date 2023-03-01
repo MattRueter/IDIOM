@@ -27,7 +27,15 @@ export const exerciseSlice = createSlice({
 
 			state.currentWord[0] = word;
 			state.currentWord[1] = answer;
-		}
+		},
+		optionsUpdated(state, action){
+			state.multipleChoice.options = action.payload;
+		} 
 	}
 });
-export const { exerciseSelected, currentWordChanged, languageDirectionChanged } = exerciseSlice.actions;
+export const { 
+	exerciseSelected, 
+	currentWordChanged,
+	languageDirectionChanged, 
+	optionsUpdated 
+} = exerciseSlice.actions;
