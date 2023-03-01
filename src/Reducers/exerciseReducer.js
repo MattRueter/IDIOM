@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-	exercise: "flip"
+	currentExercise: "flip",
 };
 
 export const exerciseSlice = createSlice({
@@ -9,7 +9,7 @@ export const exerciseSlice = createSlice({
 	initialState,
 	reducers: {
 		exerciseSelected(state, action){
-			state.exercise = action.payload
+			state.currentExercise = action.payload
 		}
 	}
 });

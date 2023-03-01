@@ -267,9 +267,9 @@ input:invalid{
 .buttonBox{
   display:flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content:center;
   align-items: center;
-  width:75%;
+  width:80%;
   margin:2%;
 }
 /* ////////////////// HOMEPage components////////*/

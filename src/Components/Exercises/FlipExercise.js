@@ -1,15 +1,17 @@
 import { useState, useEffect } from "react";
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { counterReset, counterIncreased, counterDecreased, counterManuallySet  } from "../../Reducers/counterReducer"
 import Button from '../Button';
 
 export const FlipExercise = () =>{
-	const [ counter, setCounter ] =useState(0);
-	const [ flipped, setFlipped ] =useState("");
 	const state = useSelector((state) => state);
+	const dispatch = useDispatch();
+	const currentIndex = state.counterReducer.counter;
 	const currentSet = state.setReducer.set ? state.setReducer.set : [{l1:"No set selected", l2:"Choose a set by selecting labels within one of your folders."}]	
+	const [ flipped, setFlipped ] =useState("");
 	const [ translate, setTranslate ] = useState("l1")
 	
-	const lastWord = currentSet.length -1;
+	const lastWordIndex = currentSet.length -1;
 	const next = "Next";
 	const previous = "Previous";
 	
@@ -22,13 +24,13 @@ export const FlipExercise = () =>{
 	
 	const changeCard = (command) =>{
 		setTranslate("l1");
-		if(lastWord > 0){
-			if(counter > 0 && counter < lastWord){
-				command === next ? setCounter(counter + 1) : setCounter(counter - 1);
-			}else if(counter === 0) {
-				command === next ? setCounter(counter + 1) : setCounter(lastWord);
-			}else if(counter === lastWord){
-				command === next ? setCounter( 0 ) : setCounter(counter - 1);
+		if(lastWordIndex > 0){
+			if(currentIndex > 0 && currentIndex < lastWordIndex){
+				command === next ? dispatch(counterIncreased()) : dispatch(counterDecreased());
+			}else if(currentIndex === 0) {
+				command === next ? dispatch(counterIncreased()) : dispatch(counterManuallySet(lastWordIndex));
+			}else if(currentIndex === lastWordIndex){
+				command === next ? dispatch(counterReset()) : dispatch(counterDecreased());
 			}
 		}
 	}
@@ -40,7 +42,7 @@ export const FlipExercise = () =>{
 
 	return(
 		<div className={"display"}>
-			<div className={"card"} style={{transform:flipped}}onClick={flipCard}>{currentSet[counter][translate]}</div>
+			<div className={"card"} style={{transform:flipped}}onClick={flipCard}>{currentSet[currentIndex][translate]}</div>
 			<div className={"buttonBox"}>
 				<Button className={"exerciseButton"} handleClick={changeCard} buttonName={previous}></Button> 
 				<Button className={"exerciseButton"} handleClick={changeCard} buttonName={next}></Button>

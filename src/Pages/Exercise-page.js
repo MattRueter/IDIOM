@@ -8,7 +8,7 @@ import { exerciseSelected } from '../Reducers/exerciseReducer';
 export default function ExercisePage (){
 	const state = useSelector((state) => state);
 	const dispatch = useDispatch();
-	const currentExercise  = state.exerciseReducer.exercise
+	const currentExercise  = state.exerciseReducer.currentExercise
 
 	const handleClick = (exerciseType) => {
 		dispatch(exerciseSelected(exerciseType))
