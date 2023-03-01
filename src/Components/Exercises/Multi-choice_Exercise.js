@@ -10,8 +10,6 @@ export const MultiChoiceExercise = () =>{
 	const currentSet = state.setReducer.set;
 	const currentIndex = state.counterReducer.counter;
 	const currentWord = state.exerciseReducer.multipleChoice.currentWord;
-	
-	const [ translate, setTranslate ] = useState("l1")
 	const lastWordIndex = currentSet.length-1;
 	
 	const checkAnswer = () =>{
