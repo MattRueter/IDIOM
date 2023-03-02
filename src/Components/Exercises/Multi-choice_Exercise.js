@@ -17,6 +17,8 @@ export const MultiChoiceExercise = () =>{
 
 	useEffect (() => {
 		dispatch(currentWordChanged(currentSet[currentIndex]));
+
+
 		dispatch(optionsUpdated(["word 1",currentWord[1],"word2","word3"]))
 	},[languageDirection, currentIndex, currentWord]);
 
@@ -32,6 +34,8 @@ export const MultiChoiceExercise = () =>{
 				//no? then send Try again msg.
 					//...and RESET game using Incorrect array.
 			//No? Then continue.
+			const answerIndex = Math.floor(Math.random()*4);
+
 			nextCard()
 			dispatch(currentWordChanged(currentSet[currentIndex]));
 	}
