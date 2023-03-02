@@ -3,10 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
 	languageDirection: ["l1","l2"],
 	currentExercise: "flip",
-	currentWord:["",""],
-	multipleChoice:{
-		options:[],
-	}
+	currentWord:{word:["",""], options:[]}
 };
 
 export const exerciseSlice = createSlice({
@@ -25,11 +22,12 @@ export const exerciseSlice = createSlice({
 			const word = action.payload[fromLanguage];
 			const answer = action.payload[targetLanguage];
 
-			state.currentWord[0] = word;
-			state.currentWord[1] = answer;
+			state.currentWord.word[0] = word;
+			state.currentWord.word[1] = answer;
 		},
 		optionsUpdated(state, action){
-			state.multipleChoice.options = action.payload;
+			//
+			state.currentWord.options = action.payload;
 		} 
 	}
 });
