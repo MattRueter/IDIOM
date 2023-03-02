@@ -33,3 +33,14 @@ export function getFolders (){
 export function removeDuplicates (myArray) {
 	return myArray = myArray.filter((item,index) =>myArray.indexOf(item)===index)
 }
+export function shuffleArray (myArray) {
+	let shuffledArray = [];
+	for (let i = myArray.length-1; i > 0; i--){
+		const j = Math.floor(Math.random()* (i + 1));
+		const temp = myArray[i];
+		myArray[i] = myArray[j];
+		myArray[j] = temp;
+		shuffledArray.push(myArray[j]);
+	}
+	return shuffledArray;
+}
