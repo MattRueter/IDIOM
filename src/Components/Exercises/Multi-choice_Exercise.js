@@ -1,14 +1,14 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { counterReset, counterIncreased  } from "../../Reducers/counterReducer"
 import { currentWordChanged, optionsUpdated } from "../../Reducers/exerciseReducer";
-import {  shuffleArray, removeDuplicates } from "../../Utility_functions/utilities";
+import { shuffleArray } from "../../Utility_functions/utilities";
 import Button from '../Button';
 
 export const MultiChoiceExercise = () =>{
 	const state = useSelector((state) =>state);
 	const dispatch = useDispatch();
-	const languageDirection =state.exerciseReducer.languageDirection;
+	const toggledLanguage =state.exerciseReducer.toggledLanguage;
 	const currentSet = state.setReducer.set;
 	const lastWordIndex = currentSet.length-1;
 	const currentIndex = state.counterReducer.counter;
@@ -17,7 +17,7 @@ export const MultiChoiceExercise = () =>{
 	const options = state.exerciseReducer.currentWord.options;
 	//_________Think of a cleaner way __________________________________
 	let optionLibrary = state.userReducer.library.filter(word => word.folder === state.folderReducer.currentFolder);
-		optionLibrary = optionLibrary.map(word => word[languageDirection[1]]);
+		optionLibrary = optionLibrary.map(word => word[toggledLanguage[1]]);
 		optionLibrary = shuffleArray(optionLibrary)
 		optionLibrary = optionLibrary.filter(word => word !==currentWord[1]);
 		let newOptions =[...optionLibrary.splice(0,3),currentWord[1]];
@@ -30,7 +30,7 @@ export const MultiChoiceExercise = () =>{
 	useEffect(() => {
 		dispatch(currentWordChanged(currentSet[currentIndex]));
 		dispatch(optionsUpdated(newOptions))		
-	},[languageDirection, currentIndex, currentWord])
+	},[toggledLanguage, currentIndex, currentWord])
 	
 	
 	const checkAnswer = () =>{

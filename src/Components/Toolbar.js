@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux"
 import {Link} from 'react-router-dom';
 import { setSelected } from "../Reducers/setReducer"
 import { filterSets } from "../Utility_functions/utilities"
-import { languageDirectionChanged } from "../Reducers/exerciseReducer";
+import { toggledLanguageChanged } from "../Reducers/exerciseReducer";
 
 export const Toolbar = () => {
 	const state = useSelector((state) => state);
@@ -23,7 +23,7 @@ export const Toolbar = () => {
 	});
 
 	const toggleTranslation = () => {
-		dispatch(languageDirectionChanged());
+		dispatch(toggledLanguageChanged());
 	}
 	
 	return (
