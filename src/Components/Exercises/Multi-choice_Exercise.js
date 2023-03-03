@@ -10,6 +10,7 @@ export const MultiChoiceExercise = () =>{
 	const dispatch = useDispatch();
 	const languageDirection =state.exerciseReducer.languageDirection;
 	const currentSet = state.setReducer.set;
+	const lastWordIndex = currentSet.length-1;
 	const currentIndex = state.counterReducer.counter;
 
 	const currentWord = state.exerciseReducer.currentWord.word;
@@ -22,12 +23,14 @@ export const MultiChoiceExercise = () =>{
 		let newOptions =[...optionLibrary.splice(0,3),currentWord[1]];
 			newOptions = shuffleArray(newOptions);
 	//__________________________________________________________________________________________
-	const lastWordIndex = currentSet.length-1;
-	
+	//________________________________________________________
+	let selectedAnswer = "";
+	//________________________________________________________
+
 	useEffect(() => {
 		dispatch(currentWordChanged(currentSet[currentIndex]));
 		dispatch(optionsUpdated(newOptions))		
-},[languageDirection, currentIndex, currentWord])
+	},[languageDirection, currentIndex, currentWord])
 	
 	
 	const checkAnswer = () =>{
@@ -42,6 +45,8 @@ export const MultiChoiceExercise = () =>{
 		//no? then send Try again msg.
 		//...and RESET game using Incorrect array.
 		//No? Then continue.
+		
+		selectedAnswer === currentWord[1] ? displayMessage("correct.") : displayMessage("wrong.")
 		nextCard() //counter increases
 	}
 	
@@ -54,15 +59,20 @@ export const MultiChoiceExercise = () =>{
 			}
 		}
 	};
-
+	const displayMessage = (msg) => {
+		alert(msg)
+	};
+	const selectAnswer = (word) =>{
+		selectedAnswer = word
+	}
 	return(
 		<div className={"display"}>
 			<div className={"card"}>{currentWord[0]}</div>
 			<div className={"buttonBox"}>
-				<Button className={"exerciseButton"} buttonName={options[0]}></Button>
-				<Button className={"exerciseButton"} buttonName={options[1]}></Button>
-				<Button className={"exerciseButton"} buttonName={options[2]}></Button>
-				<Button className={"exerciseButton"} buttonName={options[3]}></Button>
+				<Button handleClick={selectAnswer} className={"exerciseButton"} buttonName={options[0]}></Button>
+				<Button handleClick={selectAnswer} className={"exerciseButton"} buttonName={options[1]}></Button>
+				<Button handleClick={selectAnswer} className={"exerciseButton"} buttonName={options[2]}></Button>
+				<Button handleClick={selectAnswer} className={"exerciseButton"} buttonName={options[3]}></Button>
 			</div>
 			<div className={"buttonBox"}>
 				<Button className={"exerciseButton"} handleClick={checkAnswer}buttonName={"Check"}></Button> 
