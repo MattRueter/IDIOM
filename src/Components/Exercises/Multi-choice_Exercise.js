@@ -19,7 +19,22 @@ export const MultiChoiceExercise = () =>{
 	
 	useEffect(() => {
 		dispatch(currentWordChanged(currentSet[currentIndex]));
-		dispatch(optionsUpdated(["ex","ex","ex", currentWord[1]]))		
+		/* 
+		1.create an array of randomly selected words (l1/l2) from the current folder
+		2.clude currentWord[1] in this array.
+		3.Shuffle the array to sort them randomly.
+		4.Pass the array to dispatch(optionsUpdated())		
+		*/
+		const optionA = 0
+		const optionB = 1
+		const optionC = 2
+		const newOptions =[ 
+			currentSet[optionA][languageDirection[1]],
+			currentSet[optionB][languageDirection[1]],
+			currentSet[optionC][languageDirection[1]],
+			currentWord[1]
+		];
+		dispatch(optionsUpdated(newOptions))		
 },[languageDirection, currentIndex, currentWord])
 	
 	
