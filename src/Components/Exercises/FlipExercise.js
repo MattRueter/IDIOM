@@ -8,6 +8,7 @@ import {
 	counterManuallySet  
 } from "../../Reducers/counterReducer"
 import Button from '../Button';
+import { CounterDisplay } from "../CounterDisplay";
 
 export const FlipExercise = () =>{
 	const state = useSelector((state) => state);
@@ -64,6 +65,7 @@ export const FlipExercise = () =>{
 				onClick={flipCard}>
 				{currentWord[index]}
 			</div>
+			<CounterDisplay />
 			<div className={"buttonBox"}>
 				<Button className={"exerciseButton"} handleClick={prevCard} buttonName={"Previoius"}></Button> 
 				<Button className={"exerciseButton"} handleClick={nextCard} buttonName={"Next"}></Button>

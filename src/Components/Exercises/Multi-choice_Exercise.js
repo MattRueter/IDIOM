@@ -4,6 +4,7 @@ import { counterReset, counterIncreased  } from "../../Reducers/counterReducer"
 import { currentWordChanged, optionsUpdated } from "../../Reducers/exerciseReducer";
 import { shuffleArray } from "../../Utility_functions/utilities";
 import Button from '../Button';
+import { CounterDisplay } from "../CounterDisplay";
 
 export const MultiChoiceExercise = () =>{
 	const state = useSelector((state) =>state);
@@ -71,6 +72,7 @@ export const MultiChoiceExercise = () =>{
 				className={"card"}>
 					{currentWord[0]}
 			</div>
+			<CounterDisplay />
 			<div className={"buttonBox"}>
 				<Button handleClick={selectAnswer} className={"exerciseButton"} buttonName={options[0]}></Button>
 				<Button handleClick={selectAnswer} className={"exerciseButton"} buttonName={options[1]}></Button>
