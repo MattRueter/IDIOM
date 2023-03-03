@@ -14,7 +14,12 @@ export const MultiChoiceExercise = () =>{
 
 	const currentWord = state.exerciseReducer.currentWord.word;
 	const options = state.exerciseReducer.currentWord.options;
-
+	let optionLibrary = state.userReducer.library.filter(word => word.folder === state.folderReducer.currentFolder);
+		optionLibrary = optionLibrary.map(word => word[languageDirection[1]]);
+		optionLibrary = shuffleArray(optionLibrary)
+		optionLibrary = optionLibrary.filter(word => word !==currentWord[1]);
+		let newOptions =[...optionLibrary.splice(0,3),currentWord[1]];
+			newOptions = shuffleArray(newOptions);
 	const lastWordIndex = currentSet.length-1;
 	
 	useEffect(() => {
@@ -25,6 +30,8 @@ export const MultiChoiceExercise = () =>{
 		3.Shuffle the array to sort them randomly.
 		4.Pass the array to dispatch(optionsUpdated())		
 		*/
+		console.log(optionLibrary)
+		/*
 		const optionA = 0
 		const optionB = 1
 		const optionC = 2
@@ -34,6 +41,7 @@ export const MultiChoiceExercise = () =>{
 			currentSet[optionC][languageDirection[1]],
 			currentWord[1]
 		];
+		*/
 		dispatch(optionsUpdated(newOptions))		
 },[languageDirection, currentIndex, currentWord])
 	

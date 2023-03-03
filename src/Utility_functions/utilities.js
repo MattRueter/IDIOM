@@ -35,7 +35,7 @@ export function removeDuplicates (myArray) {
 }
 
 
-export function suffleArray (myArray){
+export function shuffleArray (myArray){
 	let size = myArray.length;
 	let newArray = [];
 	let randomNumber = 0;
@@ -44,9 +44,7 @@ export function suffleArray (myArray){
 		if(newArray.includes(myArray[randomNumber])){
 			
 		}else if(!newArray.includes(myArray[randomNumber])){
-			console.log(newArray,myArray[randomNumber],randomNumber)
 			newArray.push(myArray[randomNumber])
-			console.log(newArray,myArray[randomNumber])
 		}
 	}
 	return newArray;
