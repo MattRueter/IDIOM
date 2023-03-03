@@ -14,37 +14,20 @@ export const MultiChoiceExercise = () =>{
 
 	const currentWord = state.exerciseReducer.currentWord.word;
 	const options = state.exerciseReducer.currentWord.options;
+	//_________Think of a cleaner way __________________________________
 	let optionLibrary = state.userReducer.library.filter(word => word.folder === state.folderReducer.currentFolder);
 		optionLibrary = optionLibrary.map(word => word[languageDirection[1]]);
 		optionLibrary = shuffleArray(optionLibrary)
 		optionLibrary = optionLibrary.filter(word => word !==currentWord[1]);
 		let newOptions =[...optionLibrary.splice(0,3),currentWord[1]];
 			newOptions = shuffleArray(newOptions);
+	//__________________________________________________________________________________________
 	const lastWordIndex = currentSet.length-1;
 	
 	useEffect(() => {
 		dispatch(currentWordChanged(currentSet[currentIndex]));
-		/* 
-		1.create an array of randomly selected words (l1/l2) from the current folder
-		2.clude currentWord[1] in this array.
-		3.Shuffle the array to sort them randomly.
-		4.Pass the array to dispatch(optionsUpdated())		
-		*/
-		console.log(optionLibrary)
-		/*
-		const optionA = 0
-		const optionB = 1
-		const optionC = 2
-		const newOptions =[ 
-			currentSet[optionA][languageDirection[1]],
-			currentSet[optionB][languageDirection[1]],
-			currentSet[optionC][languageDirection[1]],
-			currentWord[1]
-		];
-		*/
 		dispatch(optionsUpdated(newOptions))		
 },[languageDirection, currentIndex, currentWord])
-	
 	
 	
 	const checkAnswer = () =>{
