@@ -400,4 +400,8 @@ input:invalid{
   .card{
     width:90%;
   }
+  .exerciseInput{
+    width:90%;
+    margin-top:15%;
+  }
 }
