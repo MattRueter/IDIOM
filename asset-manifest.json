@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/IDIOM/static/css/main.c6783707.css",
-    "main.js": "/IDIOM/static/js/main.a10980b0.js",
+    "main.css": "/IDIOM/static/css/main.433843a7.css",
+    "main.js": "/IDIOM/static/js/main.affd43da.js",
     "static/media/idiomBackground2.png": "/IDIOM/static/media/idiomBackground2.71eb86ecc227c5422ec0.png",
     "index.html": "/IDIOM/index.html",
-    "main.c6783707.css.map": "/IDIOM/static/css/main.c6783707.css.map",
-    "main.a10980b0.js.map": "/IDIOM/static/js/main.a10980b0.js.map"
+    "main.433843a7.css.map": "/IDIOM/static/css/main.433843a7.css.map",
+    "main.affd43da.js.map": "/IDIOM/static/js/main.affd43da.js.map"
   },
   "entrypoints": [
-    "static/css/main.c6783707.css",
-    "static/js/main.a10980b0.js"
+    "static/css/main.433843a7.css",
+    "static/js/main.affd43da.js"
   ]
 }
