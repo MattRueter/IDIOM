@@ -14,7 +14,7 @@ export const FlipExercise = () =>{
 	const state = useSelector((state) => state);
 	const dispatch = useDispatch();
 	const currentIndex = state.counterReducer.counter;
-	const currentSet = state.setReducer.set ? state.setReducer.set : [{l1:"No set selected", l2:"Choose a set by selecting labels within one of your folders."}]	
+	const currentSet  = state.setReducer.set ? state.setReducer.set : [{l1:"choose a set.", l2:"choose a set."}];
 	const toggledLanguage =state.exerciseReducer.toggledLanguage;
 	const currentWord = state.exerciseReducer.currentWord.word;
 	const [ flipped, setFlipped ] =useState("");
@@ -22,7 +22,7 @@ export const FlipExercise = () =>{
 	const lastWordIndex = currentSet.length -1;
 
 	useEffect(() => {
-		dispatch(currentWordChanged(currentSet[currentIndex]));
+			dispatch(currentWordChanged(currentSet[currentIndex]));		
 	},[ toggledLanguage, currentIndex ]);
 	
 	useEffect(() => {

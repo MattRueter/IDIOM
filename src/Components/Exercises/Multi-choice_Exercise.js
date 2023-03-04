@@ -10,7 +10,7 @@ export const MultiChoiceExercise = () =>{
 	const state = useSelector((state) =>state);
 	const dispatch = useDispatch();
 	const toggledLanguage =state.exerciseReducer.toggledLanguage;
-	const currentSet = state.setReducer.set;
+	const currentSet  = state.setReducer.set ? state.setReducer.set : [{l1:"choose a set.", l2:"choose a set."}];
 	const lastWordIndex = currentSet.length-1;
 	const currentIndex = state.counterReducer.counter;
 
@@ -72,7 +72,6 @@ export const MultiChoiceExercise = () =>{
 				className={"card"}>
 					{currentWord[0]}
 			</div>
-			<CounterDisplay />
 			<div className={"buttonBox"}>
 				<Button handleClick={selectAnswer} className={"exerciseButton"} buttonName={options[0]}></Button>
 				<Button handleClick={selectAnswer} className={"exerciseButton"} buttonName={options[1]}></Button>
@@ -85,3 +84,4 @@ export const MultiChoiceExercise = () =>{
 		</div>
 	)
 }
+//<CounterDisplay />
