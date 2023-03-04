@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { counterReset, counterIncreased  } from "../../Reducers/counterReducer"
 import { currentWordChanged, optionsUpdated } from "../../Reducers/exerciseReducer";
 import Button from '../Button';
+import { CounterDisplay } from "../CounterDisplay";
 
 export const ResponseExercise = () =>{
 		const state = useSelector((state) =>state);
@@ -30,6 +31,7 @@ export const ResponseExercise = () =>{
 		<div className={"display"}>
 			<div className={"card"}>{currentWord[0]}</div>
 			<input className={"exerciseInput"} placeholder={"write your response"}></input>
+			<CounterDisplay />
 			<div className={"buttonBox"}>
 				<Button className={"exerciseButton"} handleClick={checkAnswer}buttonName={"Check"}></Button>
 			</div>
