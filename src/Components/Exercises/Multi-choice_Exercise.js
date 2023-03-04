@@ -72,6 +72,7 @@ export const MultiChoiceExercise = () =>{
 				className={"card"}>
 					{currentWord[0]}
 			</div>
+			<CounterDisplay />
 			<div className={"buttonBox"}>
 				<Button handleClick={selectAnswer} className={"exerciseButton"} buttonName={options[0]}></Button>
 				<Button handleClick={selectAnswer} className={"exerciseButton"} buttonName={options[1]}></Button>
