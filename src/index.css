@@ -121,15 +121,10 @@ button:hover{
 	height: 100%;
 }
 .LandingPageLargeLogo {
-	background-color: #22187e;
-	color: white;
+  border:2px solid white;
 	display: flex;
 	height: 75%;
   width:90%;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	font-size:x-large;
 }
 .homePage{
   background-image: url("./Images/idiomBackground2.png");
