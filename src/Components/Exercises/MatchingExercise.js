@@ -1,25 +1,31 @@
+import { useSelector } from 'react-redux';
+
 export const MatchingExercise = () =>{
+	const state = useSelector((state) => state);
+	const currentSet = state.setReducer.set;
+	const L_oneCards =currentSet.map((item,index) =>{
+		return(
+			<Card word={item.l1} key={index} />
+		)
+	});
+	const L_twoCards = currentSet.map((item,index) =>{
+		return(
+			<Card word={item.l2} key={index} />
+		)
+	});
 	return(
 		<div className={"displayROW"}>
 			<div className={"CardColumn"}>
-				<Card />
-				<Card />
-				<Card />
-				<Card />
-				<Card />
+				{L_oneCards}
 			</div>
 			<div className={"CardColumn"}>
-				<Card />
-				<Card />
-				<Card />
-				<Card />
-				<Card />
+				{L_twoCards}
 			</div>
 		</div>
 	)
 }
-const Card = () =>{
+const Card = ({word}) =>{
 	return (
-		<div className={"smallCard"}>TEXT</div>
+		<div className={"smallCard"}>{word}</div>
 	)
 }
