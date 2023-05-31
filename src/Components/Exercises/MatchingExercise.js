@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector } from 'react-redux';
 import { shuffleArray } from "../../Utility_functions/utilities";
 
 export const MatchingExercise = () =>{
 	const state = useSelector((state) => state);
 	const currentSet = state.setReducer.set;
-	const [selectedChoices, setSelectedChoices] = useState({l1:"", l2:""})
+	const [selectedChoices, setSelectedChoices] = useState(null)
+	const [ L1cards, setL1Cards ] = useState(shuffleArray(currentSet.map(item => item)));
+	const [ L2cards ,setL2cards ] = useState(shuffleArray(currentSet.map(item => item)));
 
 //clicking events ------------------------------------------
 	const selectL1card =(card)=>{
@@ -25,22 +27,19 @@ export const MatchingExercise = () =>{
 		console.log(selectedChoices)
 	}
 //-----------------------------------------------------------	
-	//make and shuffle L1 cards
-	let L_oneCards = currentSet.map(item => item);
-	L_oneCards = shuffleArray(L_oneCards);
-	L_oneCards = L_oneCards.map((item,index) =>{
-		return(
-			<Card word={item.l1} key={index} handleClick={selectL1card}/>
-		)
-	});
-	//make and shuffle L2 cards
-	let L_twoCards = currentSet.map(item => item);
-	L_twoCards = shuffleArray(L_twoCards);
-	L_twoCards = L_twoCards.map((item,index) =>{
-		return(
-			<Card word={item.l2} key={index} handleClick={selectL2card}/>
-		)
-	});
+		//make L1 cards
+		const L_oneCards = L1cards.map((item,index) =>{
+			return(
+				<Card word={item.l1} key={index} handleClick={selectL1card}/>
+			)
+		});
+		//make L2 cards
+		const L_twoCards = L2cards.map((item,index) =>{
+			return(
+				<Card word={item.l2} key={index} handleClick={selectL2card}/>
+			)
+		});
+
 	return(
 		<div className={"displayROW"}>
 			<div className={"CardColumn"}>
