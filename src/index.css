@@ -265,6 +265,16 @@ input:invalid {
   justify-content: center;
   align-items: center;
 }
+.smallCardSelected {
+  border: 2px dashed green;
+  box-shadow: -5px 5px 10px lightsteelblue;
+  background-color: white;
+  height: 7rem;
+  width: 75%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 /*.flip properties being applied directly in JS function in FlipExercise Component*/
 .flip {
