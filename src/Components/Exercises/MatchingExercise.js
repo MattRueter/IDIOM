@@ -30,9 +30,10 @@ export const MatchingExercise = () =>{
 			}
 		});
 		e.target.classList="smallCardSelected";
-			
+
 		//THIRD: Run checkAnswer code if 'selectedChoices' object has l1 and l2 value.
 		//selectedChoics has l1 and l2 value ?
+		console.log(selectedChoices)
 		//find the object in the word library which matches the l1 word
 			//does this object's l2 word match the l2 word in 'selectedChoices'?
 			//YES: correct (run correct logic and messaging in UI)
@@ -47,7 +48,7 @@ export const MatchingExercise = () =>{
 			return cards.map((item,index)=>{
 				word =item[currentLanguage]
 				return(
-					<Card word={word} language={currentLanguage} key={index} handleClick={(e)=>selectCard(word,currentLanguage,e)}/>
+					<Card word={word} language={currentLanguage} key={index} handleClick={selectCard}/>
 				)	
 			})
 		}
@@ -67,8 +68,8 @@ export const MatchingExercise = () =>{
 	)
 }
 
-const Card = ({word, handleClick}) =>{
+const Card = ({word, language, handleClick}) =>{
 	return (
-		<div className={"smallCard"} onClick={handleClick}>{word}</div>
+		<div className={"smallCard"} onClick={(e)=>handleClick(word,language,e)}>{word}</div>
 	)
 }
