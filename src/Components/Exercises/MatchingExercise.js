@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useSelector } from 'react-redux';
 import { shuffleArray } from "../../Utility_functions/utilities";
 
@@ -9,67 +9,51 @@ export const MatchingExercise = () =>{
 	const [ L1cards ] = useState(shuffleArray(currentSet.map(item => item)));
 	const [ L2cards ] = useState(shuffleArray(currentSet.map(item => item)));
 
-
 //SELECT CARDS ------------------------------------------
-//simplify this code into one function replacing 'l1' and 'l2' with variable
-//SELECTING L1 #################################################################################
-	const selectL1card =(card)=>{
-		const word = card.target.textContent
+	const selectCard =(word, currentLanguage, e)=>{
+		let columnNumber;
+		currentLanguage === "l1" ? columnNumber = 0 : columnNumber = 1;
+		
+		//FIRST: Push word into selectedChoices object (checking logic will run base on state of this variable).
 		setSelectedChoices(prev =>({
 			...prev,
-			l1:word
+			[currentLanguage]:word
 		}));
-			//highlight card & unhighlight previous selection if exists---------------------------------------------
-			//if any 'leftColum' elements have className "smallCardSelected" assigned to them --> unassign
-			const columns = document.getElementsByClassName("CardColumn");
-			const leftColumn = columns[0].children;
-			const L1_cards = Array.from(leftColumn)
-			L1_cards.forEach((card)=>{
-				if(card.classList[0] === "smallCardSelected"){
-					card.classList = "smallCard"
-				}
-			});
-			//then run code to assign "smallCardSelected" to current clicked element.			
-			card.target.classList="smallCardSelected";
-			//--------------------------------------------------------------------------------------------------------			
-		//run check answer code if 'selectedChoices' object has l1 and l2 value.
-	}
-//SELECTING L2#################################################################################
-	const selectL2card =(card)=>{
-		const word = card.target.textContent
-		setSelectedChoices(prev =>({
-			...prev,
-			l2:word
-		}));
-			//highlight card & unhighlight previous selection if exitsts----------------------------------
-			//if any 'leftColum' elements have className "smallCardSelected" assigned to them --> unassign
-			const columns = document.getElementsByClassName("CardColumn");
-			const rightColumn = columns[1].children;
-			const L2_cards = Array.from(rightColumn)
-			L2_cards.forEach((card)=>{
-				if(card.classList[0] === "smallCardSelected"){
-					card.classList = "smallCard"
-				}
-			});
-			//then run code to assign "smallCardSelected" to current clicked element.			
-			card.target.classList="smallCardSelected";
-			//------------------------------------------------------------------------------------------------------		
-		//run check answer code if 'selectedChoices' object has l1 and l2 value.
-	}
-//-----------------------------------------------------------	
 
-//MAKE CARDS FOR UI:
-		const makeCards = (language) =>{
-			let selectCard;
-			language === L1cards ? selectCard = selectL1card : selectCard = selectL2card;
-			return language.map((item,index)=>{
+		//SECOND: Highlight card & unhighlight previous selection if exists---------------------------------------------
+		const columns = document.getElementsByClassName("CardColumn");
+		const currentColumn = columns[columnNumber].children;
+		const cards = Array.from(currentColumn)
+			cards.forEach((card)=>{
+			if(card.classList[0] === "smallCardSelected"){
+				card.classList = "smallCard"
+			}
+		});
+		e.target.classList="smallCardSelected";
+			
+		//THIRD: Run checkAnswer code if 'selectedChoices' object has l1 and l2 value.
+		//selectedChoics has l1 and l2 value ?
+		//find the object in the word library which matches the l1 word
+			//does this object's l2 word match the l2 word in 'selectedChoices'?
+			//YES: correct (run correct logic and messaging in UI)
+			//NO: (run incorrect logic and messaging in the UI)
+	}
+
+//MAKE CARDS FOR UI: ###############################################################
+		const makeCards = (cards) =>{
+			let currentLanguage;
+			let word;
+			cards === L1cards ? currentLanguage = "l1" : currentLanguage = "l2";
+			return cards.map((item,index)=>{
+				word =item[currentLanguage]
 				return(
-					<Card word={item.l1} key={index} handleClick={selectCard}/>
+					<Card word={word} language={currentLanguage} key={index} handleClick={(e)=>selectCard(word,currentLanguage,e)}/>
 				)	
 			})
 		}
 		const L_oneCards = makeCards(L1cards);
 		const L_twoCards = makeCards(L2cards);
+//##################################################################################
 
 	return(
 		<div className={"displayROW"}>
