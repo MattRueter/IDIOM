@@ -1,11 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useSelector } from 'react-redux';
 import { shuffleArray } from "../../Utility_functions/utilities";
 
 export const MatchingExercise = () =>{
 	const state = useSelector((state) => state);
-	const currentSet = state.setReducer.set;
-	// move selectedCards to Redux store so most up to date state is available.
+	const currentSet  = state.setReducer.set ? state.setReducer.set : [{l1:"choose a set.", l2:"choose a set."}];
 	const [selectedCards, setselectedCards] = useState({l1:"", l2:""})
 	const [ L1cards ] = useState(shuffleArray(currentSet.map(item => item)));
 	const [ L2cards ] = useState(shuffleArray(currentSet.map(item => item)));
@@ -38,7 +37,6 @@ export const MatchingExercise = () =>{
 		
 		//THIRD: If selectedCards has l1 and l2 value, run checkAnswer code.
 		if(cardsToEvaluate.l1 !=="" && cardsToEvaluate.l2 !==""){
-			console.log("checking answer.",cardsToEvaluate)
 			checkAnswer(cardsToEvaluate)
 		}
 	}
@@ -55,12 +53,9 @@ const checkAnswer = (cardsToEvaluate) => {
 	}
 };
 const reset = (cardsToEvaluate) =>{
-	console.log("resetting.");
 	setselectedCards({l1:"", l2:""});
 	//unhighlight "finished cards" here?
 };
-//#####################################################################################################################
-
 
 //MAKE CARDS FOR UI: ###############################################################
 		const makeCards = (cards) =>{
