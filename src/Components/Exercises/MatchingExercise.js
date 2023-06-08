@@ -55,7 +55,26 @@ const checkAnswer = (cardsToEvaluate) => {
 const reset = (cardsToEvaluate) =>{
 	setselectedCards({l1:"", l2:""});
 	//unhighlight "finished cards" here?
+	turnOffCard()
 };
+const turnOffCard = () =>{
+	//.smallCardTurnedoff
+	const columns = document.getElementsByClassName("CardColumn");
+	const leftColumn = Array.from(columns[0].children);
+	const rightColumn = Array.from(columns[1].children);
+	
+	leftColumn.forEach((card)=>{
+		if(card.classList[0] === "smallCardSelected"){
+			card.classList = "smallCardTurnedOff"
+		}		
+	});
+	rightColumn.forEach((card)=>{
+		if(card.classList[0] === "smallCardSelected"){
+			card.classList = "smallCardTurnedOff"
+		}
+	});
+
+}
 
 //MAKE CARDS FOR UI: ###############################################################
 		const makeCards = (cards) =>{
