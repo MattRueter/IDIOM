@@ -1,25 +1,30 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector } from 'react-redux';
 import { shuffleArray } from "../../Utility_functions/utilities";
 
 export const MatchingExercise = () =>{
 	const state = useSelector((state) => state);
 	const currentSet = state.setReducer.set;
-	const [selectedChoices, setSelectedChoices] = useState(null)
+	// move selectedCards to Redux store so most up to date state is available.
+	const [selectedCards, setselectedCards] = useState({l1:"", l2:""})
 	const [ L1cards ] = useState(shuffleArray(currentSet.map(item => item)));
 	const [ L2cards ] = useState(shuffleArray(currentSet.map(item => item)));
 
+
 //SELECT CARDS ------------------------------------------
-	const selectCard =(word, currentLanguage, e)=>{
+	const selectCard =(word, currentLanguage, e)=>{		
 		let columnNumber;
 		currentLanguage === "l1" ? columnNumber = 0 : columnNumber = 1;
 		
-		//FIRST: Push word into selectedChoices object (checking logic will run base on state of this variable).
-		setSelectedChoices(prev =>({
+		//FIRST: Push word into selectedCards object (checking logic will run base on state of this variable).
+		//... make immutable copy of selectedCards for evaluation (updates to state aren't immediately available).
+		setselectedCards(prev =>({
 			...prev,
 			[currentLanguage]:word
 		}));
-
+		const cardsToEvaluate = {...selectedCards};
+			cardsToEvaluate[currentLanguage] = word;
+		
 		//SECOND: Highlight card & unhighlight previous selection if exists---------------------------------------------
 		const columns = document.getElementsByClassName("CardColumn");
 		const currentColumn = columns[columnNumber].children;
@@ -30,15 +35,32 @@ export const MatchingExercise = () =>{
 			}
 		});
 		e.target.classList="smallCardSelected";
-
-		//THIRD: Run checkAnswer code if 'selectedChoices' object has l1 and l2 value.
-		//selectedChoics has l1 and l2 value ?
-		console.log(selectedChoices)
-		//find the object in the word library which matches the l1 word
-			//does this object's l2 word match the l2 word in 'selectedChoices'?
-			//YES: correct (run correct logic and messaging in UI)
-			//NO: (run incorrect logic and messaging in the UI)
+		
+		//THIRD: If selectedCards has l1 and l2 value, run checkAnswer code.
+		if(cardsToEvaluate.l1 !=="" && cardsToEvaluate.l2 !==""){
+			console.log("checking answer.",cardsToEvaluate)
+			checkAnswer(cardsToEvaluate)
+		}
 	}
+
+//#####################################################################################################################
+const checkAnswer = (cardsToEvaluate) => {
+	//destructure 'answer' so it is also an object ?
+	const answer = currentSet.filter((word)=> word.l1 === cardsToEvaluate.l1);
+	if(answer[0].l2 === cardsToEvaluate.l2){
+		alert("correct");
+		reset(cardsToEvaluate)
+	}else{
+		alert(`incorrect`)
+	}
+};
+const reset = (cardsToEvaluate) =>{
+	console.log("resetting.");
+	setselectedCards({l1:"", l2:""});
+	//unhighlight "finished cards" here?
+};
+//#####################################################################################################################
+
 
 //MAKE CARDS FOR UI: ###############################################################
 		const makeCards = (cards) =>{
