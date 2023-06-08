@@ -1,7 +1,7 @@
-import { FlipExercise } from "./FlipExercise"
+import { FlipExercise } from "./FlipExercise";
 import { MultiChoiceExercise } from "./Multi-choice_Exercise";
-import { ResponseExercise } from "./ResponseExercise"
-
+import { ResponseExercise } from "./ResponseExercise";
+import { MatchingExercise } from "./MatchingExercise";
 
 export function Exercise ({currentExercise}){
 	switch(currentExercise){
@@ -45,26 +45,6 @@ const MemoryExercise = () =>{
 			<Card />
 			<Card />			
 		</div>		
-	)
-}
-const MatchingExercise = () =>{
-	return(
-		<div className={"displayROW"}>
-			<div className={"CardColumn"}>
-				<Card />
-				<Card />
-				<Card />
-				<Card />
-				<Card />
-			</div>
-			<div className={"CardColumn"}>
-				<Card />
-				<Card />
-				<Card />
-				<Card />
-				<Card />
-			</div>
-		</div>
 	)
 }
 

@@ -3,7 +3,8 @@ export const footer ={
 	justifyContent: "flex-start",
 	alignItems: "flex-start",
 	backgroundColor: "#090152",
-	height: "20%"
+	height: "12%",
+	marginTop:"2%"
 }
 export function Footer ({content}){
 	return (
