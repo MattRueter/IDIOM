@@ -8,7 +8,10 @@ export const MatchingExercise = () =>{
 	const [selectedCards, setselectedCards] = useState({l1:"", l2:""})
 	const [currentPage, setCurrentPage ] = useState(1);
 	const [ cardsPerPage ] = useState(5);
-	const shuffleCards = shuffleArray;
+	const indexLastCard = currentPage * cardsPerPage;
+	const indexFirstCard = indexLastCard - cardsPerPage;
+	const [ L1Cards, setL1Cards ] = useState(shuffleArray(currentSet.slice(indexFirstCard, indexLastCard)));
+	const [ L2Cards, setL2Cards ] = useState(shuffleArray(currentSet.slice(indexFirstCard, indexLastCard)));
 //SELECT CARDS ------------------------------------------
 	const selectCard =(word, currentLanguage, e)=>{
 		if(e.target.classList[0] !=="smallCardTurnedOff"){
@@ -73,15 +76,11 @@ const highlightCard = (columnNumber, e) =>{
 	e.target.classList="smallCardSelected";
 };
 //MAKE CARDS FOR UI: ###############################################################
-	const makeCards = (language) =>{
-		const indexLastCard = currentPage * cardsPerPage;
-		const indexFirstCard = indexLastCard - cardsPerPage;
-		let cards = currentSet.slice(indexFirstCard, indexLastCard);
+	const makeCards = (cards) =>{
 		let currentLanguage;
 		let word;
-		language === "L1cards" ? currentLanguage = "l1" : currentLanguage = "l2";
+		cards === L1Cards ? currentLanguage = "l1" : currentLanguage = "l2";
 		
-		cards=(shuffleCards(cards));
 		return cards.map((item,index)=>{
 			word =item[currentLanguage]
 			return(
@@ -89,8 +88,8 @@ const highlightCard = (columnNumber, e) =>{
 			)	
 		})
 	}
-	const L_oneCards = makeCards("L1cards");
-	const L_twoCards = makeCards("L2cards");
+	const L_oneCards = makeCards(L1Cards);
+	const L_twoCards = makeCards(L2Cards);
 //###################################################################################
 	return(
 		<div className={"displayROW"}>
