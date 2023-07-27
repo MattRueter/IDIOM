@@ -9,6 +9,7 @@ export const MatchingExercise = () =>{
 	const [ correct, setCorrect ] =useState(0);
 	const [currentPage, setCurrentPage ] = useState(1);
 	const [ cardsPerPage ] = useState(3);
+	const [ totalPages ] = useState(Math.ceil(currentSet.length / cardsPerPage))
 	const [ indexLastCard, setIndexLastCard ] = useState(currentPage * cardsPerPage);
 	const [ indexFirstCard, setIndexFirstCard ] = useState(indexLastCard - cardsPerPage);
 	const [ L1Cards, setL1Cards ] = useState(shuffleArray(currentSet.slice(indexFirstCard, indexLastCard)));
@@ -55,16 +56,34 @@ const checkAnswer = (cardsToEvaluate) => {
 		reset(cardsToEvaluate);
 		turnOffCard();
 		setCorrect(correct + 1)
-		turnPage()
+		checkIfFinished()	
 	}else{
 		alert(`incorrect`)
 	}
+};
+const lastPage = () =>{
+	let lastPage;
+	totalPages === currentPage ? lastPage = true : lastPage = false;
+	return lastPage;
+}
+const checkIfFinished = () =>{
+	if(correct+1 === cardsPerPage && lastPage()){
+		alert("Finished.")
+		
+	}else if(correct +1 === cardsPerPage){
+		turnPage()
+	}
+}
+const turnPage = () =>{	
+	setCurrentPage(currentPage + 1);
+	setCorrect(0)
+	resetCards()
 };
 const reset = (cardsToEvaluate) =>{
 	setselectedCards({l1:"", l2:""});
 };
 
-//DRY turnOffCard and highlightCard functions.
+//DRY turnOffCard / highlightCard and resetCards functions.
 const turnOffCard = () =>{
 	let columns = document.getElementsByClassName("CardColumn");
 	const leftColumn = Array.from(columns[0].children);
@@ -76,26 +95,6 @@ const turnOffCard = () =>{
 		}		
 	});
 }
-const resetCards = () =>{
-	let columns = document.getElementsByClassName("CardColumn");
-	const leftColumn = Array.from(columns[0].children);
-	const rightColumn = Array.from(columns[1].children);
-	let cards = [...leftColumn, ...rightColumn];
-	cards.forEach((card)=>{
-		if(card.classList[0] === "smallCardTurnedOff"){
-			card.classList = "smallCard";
-		}		
-	});
-}
-const turnPage = () =>{	
-	if(correct+1 === cardsPerPage){
-		console.log("Yes. turning page is necessary.")
-		setCurrentPage(currentPage + 1);
-		setCorrect(0)
-		resetCards()
-	}
-};
-
 const highlightCard = (columnNumber, e) =>{
 	const columns = document.getElementsByClassName("CardColumn");
 	const currentColumn = columns[columnNumber].children;
@@ -107,6 +106,17 @@ const highlightCard = (columnNumber, e) =>{
 	});
 	e.target.classList="smallCardSelected";
 };
+const resetCards = () =>{
+	let columns = document.getElementsByClassName("CardColumn");
+	const leftColumn = Array.from(columns[0].children);
+	const rightColumn = Array.from(columns[1].children);
+	let cards = [...leftColumn, ...rightColumn];
+	cards.forEach((card)=>{
+		if(card.classList[0] === "smallCardTurnedOff"){
+			card.classList = "smallCard";
+		}		
+	});
+}
 //MAKE CARDS FOR UI: ###############################################################
 	const makeCards = (cards) =>{
 		let currentLanguage;
