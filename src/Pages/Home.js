@@ -1,3 +1,4 @@
+
 import { useEffect } from "react";
 import {Navbar} from '../Components/Navbar.js';
 import {Menu, menuButtons} from '../Components/Menu.js';
@@ -13,9 +14,40 @@ export default function Home() {
   const handleClick = (view) => {
 		dispatch(viewSelected(view))
 	}
+
   useEffect(()=>{
     dispatch(counterReset())
   },[])
+
+  ////////////////////////--------------------------------------
+  //a small playground to make calls to the server -> database and return the word object
+  /*  
+  const [ myWords, setMyWords ] = useState([]);  
+  useEffect(() => {
+    async function getWords (){
+
+        const response = await fetch("http://localhost:5000/words");
+        
+        if(!response.ok){
+          const message = `An error occurred: ${response.statusText}`;
+          window.alert(message);
+          return
+        }
+        
+        const words = await response.json();
+        setMyWords(words)
+      
+        console.log(`got them: ${myWords}`)
+
+      
+    }
+    getWords()
+    
+    return;
+},[myWords.length])
+*/  
+  ////////////////////////--------------------------------------
+
 
   return (
     <div className={"homePage"}>        
