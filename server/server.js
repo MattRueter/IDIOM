@@ -1,15 +1,19 @@
 const express = require("express");
-//const cors = require("cors");
 const app = express();
+const cors = require("cors");
+const morgan = require("morgan");
+
+require("./loadEnvironment.js");
+const port = process.env.PORT || 3000;
 
 
-//const port = process.env.PORT || 5000;
-const port = 5000;
-
-
-//app.use(cors());
+//MIDDLEWARE:
+app.use(cors());
 app.use(express.json());
+app.use(morgan("tiny"))
 
+
+//basic routes:
 app.get("/", function(req,res,next){
 	res.send("listening and responding.")
 });
