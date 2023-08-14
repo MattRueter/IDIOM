@@ -2,22 +2,18 @@
 require("../loadEnvironment.js");
 const { MongoClient } = require("mongodb");
 const connectionString = process.env.ATLAS_URI;
-console.log("string below")
-console.log(connectionString);
 const client = new MongoClient(connectionString);
 
 //establish connection or log error.
-let conn;
-let db;
-async function connectToDb () {
+async function connectToDb (db) {
+	let conn;
 	try{
 		conn = await client.connect();
-		db = conn.db( "idiomDB" );
-
+		return db = conn.db("idiomDB");
 	}catch(e){
 		console.log(e);
 	}
 }
+const dataBase = connectToDb();
 
-connectToDb()
-module.exports = db;
+module.exports = dataBase;
