@@ -3,7 +3,7 @@ import { Menu } from "@/components/Menu";
 
 
 const menuButtons=["Show folders","Show sets"];
-export default function Home() {
+export default function Dashboard () {
     //const state = useSelector((state) => state);
     //const dispatch = useDispatch();
     //const handleClick = (view) => {
