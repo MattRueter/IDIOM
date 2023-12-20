@@ -1,14 +1,19 @@
 {
   "files": {
-    "main.css": "/IDIOM/static/css/main.3205512a.css",
-    "main.js": "/IDIOM/static/js/main.f117ac22.js",
+    "main.css": "/IDIOM/static/css/main.b4184f06.css",
+    "main.js": "/IDIOM/static/js/main.03070bed.js",
     "static/media/idiomBackground2.png": "/IDIOM/static/media/idiomBackground2.71eb86ecc227c5422ec0.png",
+    "static/media/logo.svg": "/IDIOM/static/media/logo.103ee001e7bff317ff9cecfa50fe0186.svg",
+    "static/media/background.svg": "/IDIOM/static/media/background.bd1777efd87f5f994c05.svg",
+    "static/media/cardDeck.svg": "/IDIOM/static/media/cardDeck.18213212f0303d02d7b8288f15c69ab4.svg",
+    "static/media/cardDeckRow.svg": "/IDIOM/static/media/cardDeckRow.1cde7335a1e4836461324b2b696bfc26.svg",
+    "static/media/iconSimple.svg": "/IDIOM/static/media/iconSimple.43b3ee080d6e54cd9aa361983edf863d.svg",
     "index.html": "/IDIOM/index.html",
-    "main.3205512a.css.map": "/IDIOM/static/css/main.3205512a.css.map",
-    "main.f117ac22.js.map": "/IDIOM/static/js/main.f117ac22.js.map"
+    "main.b4184f06.css.map": "/IDIOM/static/css/main.b4184f06.css.map",
+    "main.03070bed.js.map": "/IDIOM/static/js/main.03070bed.js.map"
   },
   "entrypoints": [
-    "static/css/main.3205512a.css",
-    "static/js/main.f117ac22.js"
+    "static/css/main.b4184f06.css",
+    "static/js/main.03070bed.js"
   ]
 }
