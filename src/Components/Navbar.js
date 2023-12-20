@@ -1,4 +1,5 @@
 import {Link} from 'react-router-dom';
+import cardDeck from '../Images/cardDeck.svg';
 
 export const navbar ={
 	display: "flex",
@@ -20,7 +21,9 @@ export const contentContainer={
 export function Navbar ({content}){
 	return (
 		<nav style={navbar}>
-			<Link to='/' className={"smLogo"}></Link>
+			<Link to='/' className={"smLogo"}>
+				<img src={cardDeck}/>
+			</Link>
 			<div style={contentContainer}>
 				<Link to='/home' className={"link"}>Home</Link>
 				<Link to='/exercises' className={"link"}>Exercises</Link>
