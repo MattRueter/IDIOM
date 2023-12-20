@@ -1,4 +1,5 @@
-import logo from '../Images/logo.svg';
+import Image from "next/image"
+import logo from '../../public/logo.svg'
 
 export const footer ={
 	display: "flex",
@@ -12,7 +13,12 @@ export function Footer ({content}){
 	return (
 		<nav style={footer}>
 			<div style={{width:"20%"}}>
-				<img src={logo} />
+				<Image
+                    src={logo}
+                    alt="idiom logo"
+                    width={100}
+                    height={100}
+                />
 			</div>
 		</nav>
 	)
